@@ -9,7 +9,7 @@ export default function About() {
   return (
     <section id="about" className="section-wrapper max-w-[1300px] mx-auto pt-40">
       <div className="mx-6">
-        <h1 className="md:text-6xl text-4xl mb-10 font-semibold">About Peoplet Lab</h1>
+        <h1 className="md:text-6xl text-4xl mb-10 font-bold">About Peoplet Lab</h1>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">
           <div className="space-y-4">
             <Reveal>

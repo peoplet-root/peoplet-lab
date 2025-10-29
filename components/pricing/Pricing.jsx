@@ -46,7 +46,7 @@ const plans = [
   },
 ];
 
-export default function PricingSection() {
+export default function Pricing() {
   return (
     <section id="pricing" className="relative py-32 px-6 max-w-[1300px] mx-auto">
       {/* Header */}

@@ -55,15 +55,8 @@ export default function Navbar() {
           <button onClick={() => scrollToSection('home')} className="-m-1.5 p-1.5">
             <Image
               alt=""
-              src="/assets/logo-black.png"
-              className="h-10 w-auto block dark:hidden"
-              width="100"
-              height="100"
-            />
-            <Image
-              alt=""
-              src="/assets/logo-white.png"
-              className="h-10 w-auto hidden dark:block"
+              src="/assets/peoplet-logo.png"
+              className="h-12 w-auto block dark:hidden"
               width="100"
               height="100"
             />
