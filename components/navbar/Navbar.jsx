@@ -133,7 +133,6 @@ export default function Navbar() {
           <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
             <FaGithub />
           </a>
-          <LightDarkToggle />
         </div>
       </nav>
 
@@ -223,7 +222,6 @@ export default function Navbar() {
                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
                     <FaGithub />
                   </a>
-                  <LightDarkToggle />
                 </div>
                 <button
                   onClick={() => scrollToSection('contact')}

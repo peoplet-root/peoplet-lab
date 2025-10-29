@@ -7,20 +7,19 @@ import { SiBehance, SiDribbble, SiGithub, SiLinkedin, SiTiktok } from "react-ico
 
 export default function About() {
   return (
-    <section id="about" className="section-wrapper max-w-[1200px] mx-auto pt-40">
+    <section id="about" className="section-wrapper max-w-[1300px] mx-auto pt-40">
       <div className="mx-6">
-        <h1 className="md:text-6xl text-4xl mb-10">About me.</h1>
+        <h1 className="md:text-6xl text-4xl mb-10 font-semibold">About Peoplet Lab</h1>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">
           <div className="space-y-4">
             <Reveal>
               <p className="leading-relaxed">
-                Hey! I&apos;m Robertino, if you haven&apos;t already gathered that by
-                now. I&apos;m a full-stack developer and graphic designer from Croatia. I specialize in full-stack web development, primarily React + Next.js and graphic design, primarily Figma, Adobe Photoshop, Illustrator.
+                At Peoplet Ltd., we believe that great ideas grow where people and technology connect. We're a digital studio focused on helping companies transform ideas into meaningful digital experiences — through strategy, design, and development.
               </p>
             </Reveal>
             <Reveal>
               <p className="leading-relaxed">
-                I'm now freelancing and loving every minute of it. I spend my days building full-stack solutions while keeping my designer's eye sharp (because great code deserves great design, right?).
+                We combine design thinking, modern development, and network-science insights to help businesses understand and visualize how they grow and interact. Every project we take on is a partnership — we listen, adapt, and build solutions that last.
               </p>
             </Reveal>
             <Reveal>
@@ -87,7 +86,6 @@ export default function About() {
               </div>
             </Reveal>
           </div>
-          <Stats />
         </div>
       </div>
     </section>
