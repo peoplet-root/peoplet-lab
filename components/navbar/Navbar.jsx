@@ -53,7 +53,6 @@ export default function Navbar() {
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <button onClick={() => scrollToSection('home')} className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
             <Image
               alt=""
               src="/assets/logo-black.png"
@@ -126,12 +125,6 @@ export default function Navbar() {
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
             <FaLinkedinIn />
-          </a>
-          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
-            <FaBehance />
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
-            <FaGithub />
           </a>
         </div>
       </nav>
