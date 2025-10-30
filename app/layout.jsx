@@ -10,12 +10,12 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "Robertino Puhanić - Portfolio",
-  description: "Robertino Puhanić - Portfolio",
+  title: "Peoplet Lab",
+  description: "Peoplet Lab",
   icons: {
     icon: "/favicon.ico",
-    apple: "/logo-black.png",
-    shortcut: "/logo-black.png",
+    apple: "/favicon.png",
+    shortcut: "/favicon.png",
   },
 };
 

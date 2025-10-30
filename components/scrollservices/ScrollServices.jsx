@@ -26,7 +26,7 @@ export default function ScrollServices() {
     {
       title: "Consulting & Network Science",
       desc: "Using our network visualization platform, we map how people, teams, and decisions connect. We combine network science and strategy to improve collaboration and growth.",
-      img: "/images/consulting.png",
+      img: "/assets/consulting.png",
     },
   ];
 
