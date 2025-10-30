@@ -22,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.className} dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased pt-24`}
       >
@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
           attribute="class"
           defaultTheme="system"
           enableSystem
+          enableColorScheme={false}
           disableTransitionOnChange
         >
     

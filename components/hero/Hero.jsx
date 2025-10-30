@@ -1,4 +1,7 @@
 import Reveal from "../util/Reveal";
+import { generateFloatingShapes } from "../util/generateFloatingShapes";
+
+const heroShapes = generateFloatingShapes({ count: 8, seed: 1, delayStep: 0.5 });
 
 export default function Hero() {
   return (
@@ -67,19 +70,13 @@ export default function Hero() {
         </div>
 
         {/* Random sitni oblici za dodatnu dinamiku */}
-        {[...Array(8)].map((_, i) => (
+        {heroShapes.map((shape, i) => (
           <div
             key={i}
             className={`absolute bg-blue-${
               [200, 300, 400, 500][i % 4]
             } rounded-${i % 2 ? "full" : "lg"} opacity-25 animate-float`}
-            style={{
-              top: `${Math.random() * 80}%`,
-              left: `${Math.random() * 80}%`,
-              width: `${Math.random() * 25 + 10}px`,
-              height: `${Math.random() * 25 + 10}px`,
-              animationDelay: `${i * 0.5}s`,
-            }}
+            style={shape}
           ></div>
         ))}
       </div>

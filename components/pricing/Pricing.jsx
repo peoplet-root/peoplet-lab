@@ -2,6 +2,7 @@
 
 import React from "react";
 import Reveal from "../util/Reveal";
+import { generateFloatingShapes } from "../util/generateFloatingShapes";
 
 const plans = [
   {
@@ -46,6 +47,16 @@ const plans = [
   },
 ];
 
+const pricingShapeSets = plans.map((_, index) =>
+  generateFloatingShapes({
+    count: 6,
+    seed: 100 + index,
+    delayStep: 0.6,
+    widthRange: [15, 45],
+    heightRange: [15, 45],
+  })
+);
+
 export default function Pricing() {
   return (
     <section id="pricing" className="relative py-32 px-6 max-w-[1300px] mx-auto">
@@ -63,11 +74,11 @@ export default function Pricing() {
       </Reveal>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-3 place-items-center">
+      <div className="grid gap-10 md:grid-cols-3 md:items-stretch">
         {plans.map((plan, index) => (
           <Reveal key={index}>
             <div
-              className={`relative flex flex-col justify-between items-center text-center w-full max-w-[380px] p-10 rounded-[36px] border shadow-sm overflow-hidden min-h-[520px] transition-all duration-300
+              className={`relative flex h-[560px] w-full max-w-[380px] flex-col items-center overflow-hidden rounded-[36px] border p-10 text-center shadow-sm transition-all duration-300
                 ${
                   plan.accent === "blue"
                     ? "bg-[#0066ff] text-white shadow-xl"
@@ -76,27 +87,16 @@ export default function Pricing() {
             >
               {/* Floating animated shapes */}
               <div className="absolute inset-0 opacity-15 pointer-events-none">
-                {[...Array(6)].map((_, i) => (
+                {pricingShapeSets[index].map((shape, i) => (
                   <div
                     key={i}
                     className={`absolute bg-blue-${
                       [200, 300, 400, 500][i % 4]
                     } rounded-${i % 2 ? "full" : "lg"} animate-float`}
-                    style={{
-                      top: `${Math.random() * 80}%`,
-                      left: `${Math.random() * 80}%`,
-                      width: `${Math.random() * 30 + 15}px`,
-                      height: `${Math.random() * 30 + 15}px`,
-                      animationDelay: `${i * 0.6}s`,
-                    }}
+                    style={shape}
                   ></div>
                 ))}
               </div>
-
-              {/* Glow for middle card */}
-              {plan.popular && (
-                <div className="absolute inset-0 bg-[#0066ff]/70 blur-3xl opacity-30 -z-10"></div>
-              )}
 
               {/* Badge */}
               {plan.popular && (
@@ -106,8 +106,8 @@ export default function Pricing() {
               )}
 
               {/* Content */}
-              <div className="relative z-10 flex flex-col justify-between h-full">
-                <div>
+              <div className="relative z-10 flex h-full w-full flex-col justify-between">
+                <div className="flex flex-col items-center">
                   <div
                     className={`text-xs font-medium rounded-full px-4 py-1 mb-5 ${
                       plan.accent === "blue"
@@ -119,9 +119,15 @@ export default function Pricing() {
                   </div>
 
                   <h2
-                    className={`text-lg md:text-xl font-semibold mb-3 ${
+                    className={`text-lg md:text-xl font-semibold mb-3 leading-tight ${
                       plan.accent === "blue" ? "text-white" : "text-gray-900"
                     }`}
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
                   >
                     {plan.tagline}
                   </h2>
@@ -147,7 +153,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Features */}
-                <ul className="text-sm space-y-3 mt-6 mb-8 max-w-[250px] mx-auto">
+                <ul className="mx-auto mt-6 mb-8 flex w-full max-w-[250px] flex-1 flex-col justify-center space-y-3 text-sm">
                   {plan.features.map((feature, i) => (
                     <li
                       key={i}
@@ -156,6 +162,12 @@ export default function Pricing() {
                           ? "text-white/90"
                           : "text-gray-700"
                       }`}
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
                     >
                       • {feature}
                     </li>
@@ -163,15 +175,17 @@ export default function Pricing() {
                 </ul>
 
                 {/* Button */}
-                <button
-                  className={`px-6 py-3 rounded-full font-medium transition shadow-sm ${
-                    plan.accent === "blue"
-                      ? "bg-white text-[#0066ff] hover:bg-neutral-100"
-                      : "bg-black text-white hover:bg-[#0066ff]"
-                  }`}
-                >
-                  {plan.price === "Custom" ? "Contact Us" : "Get Started"}
-                </button>
+                <div className="mt-auto flex justify-center">
+                  <button
+                    className={`rounded-full px-6 py-3 font-medium shadow-sm transition ${
+                      plan.accent === "blue"
+                        ? "bg-white text-[#0066ff] hover:bg-neutral-100"
+                        : "bg-black text-white hover:bg-[#0066ff]"
+                    }`}
+                  >
+                    {plan.price === "Custom" ? "Contact Us" : "Get Started"}
+                  </button>
+                </div>
               </div>
             </div>
           </Reveal>

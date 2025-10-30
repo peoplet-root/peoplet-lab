@@ -2,6 +2,9 @@ import React from "react";
 import Reveal from "../util/Reveal";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { generateFloatingShapes } from "../util/generateFloatingShapes";
+
+const appShapes = generateFloatingShapes({ count: 8, seed: 2, delayStep: 0.5 });
 
 const PeopletApp = () => {
   return (
@@ -71,19 +74,13 @@ const PeopletApp = () => {
       </div>
 
       {/* --- Random small floating shapes for extra motion --- */}
-      {[...Array(8)].map((_, i) => (
+      {appShapes.map((shape, i) => (
         <div
           key={i}
           className={`absolute bg-blue-${
             [200, 300, 400, 500][i % 4]
           } rounded-${i % 2 ? "full" : "lg"} opacity-25 animate-float`}
-          style={{
-            top: `${Math.random() * 80}%`,
-            left: `${Math.random() * 80}%`,
-            width: `${Math.random() * 25 + 10}px`,
-            height: `${Math.random() * 25 + 10}px`,
-            animationDelay: `${i * 0.5}s`,
-          }}
+          style={shape}
         ></div>
       ))}
     </section>
