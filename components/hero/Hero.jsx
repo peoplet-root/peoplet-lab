@@ -6,7 +6,7 @@ const heroShapes = generateFloatingShapes({ count: 8, seed: 1, delayStep: 0.5 })
 export default function Hero() {
   return (
     <section className="px-2 flex justify-center">
-      <div className="relative bg-[#0066ff] w-full max-w-[1920px] min-h-[800px] overflow-hidden rounded-[80px]">
+      <div className="relative bg-[#0066ff] w-full max-w-[1920px] min-h-[800px] overflow-hidden md:rounded-[80px] rounded-[30px]">
         {/* Dekorativna grid pozadina */}
         <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 opacity-20">
           {/* Originalni kvadrati */}
