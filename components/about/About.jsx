@@ -27,6 +27,13 @@ export default function About() {
                 Our flagship product, the Peoplet App, transforms complex data into interactive network visualizations — making invisible relationships visible.
               </p>
             </Reveal>
+            <Reveal>
+              <button>
+                <Link href="/about" className="inline-flex items-center gap-2 rounded-full bg-[#0066ff] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#0051cc]">
+                  Learn more about us <AiOutlineArrowRight />
+                </Link>
+              </button>
+            </Reveal>
           </div>
         </div>
       </div>
