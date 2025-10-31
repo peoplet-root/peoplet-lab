@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { FaInstagram, FaLinkedinIn, FaGithub, FaBehance } from "react-icons/fa";
+import { useState } from 'react'
+import Link from 'next/link'
+import { FaInstagram, FaLinkedinIn, FaGithub, FaBehance } from "react-icons/fa"
 import {
   Dialog,
   DialogPanel,
@@ -12,57 +13,43 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import LightDarkToggle from "@/components/theme/LightDarkToggle"
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+  const pathname = usePathname()
 
-  // Smooth scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setMobileMenuOpen(false)
-    }
-  }
-
-  // Update active section based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'services', 'projects', 'experience', 'contact']
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
-        }
-        return false
-      })
-      if (currentSection) {
-        setActiveSection(currentSection)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const navItems = [
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Products', href: '/products' },
+    { name: 'Contact', href: '/contact' },
+  ]
 
   return (
     <header className="fixed w-full top-0 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+        {/* Logo */}
         <div className="flex lg:flex-1">
-          <button onClick={() => scrollToSection('home')} className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <Image
-              alt=""
+              alt="Peoplet Lab logo"
               src="/assets/peoplet-logo.png"
               className="h-12 w-auto block dark:hidden"
-              width="100"
-              height="100"
+              width={100}
+              height={100}
             />
-          </button>
+            <Image
+              alt="Peoplet Lab logo dark"
+              src="/assets/peoplet-logo.png"
+              className="h-12 w-auto hidden dark:block"
+              width={100}
+              height={100}
+            />
+          </Link>
         </div>
 
+        {/* Hamburger for mobile */}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -74,74 +61,55 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Desktop nav */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <button
-            onClick={() => scrollToSection('about')}
-            className={`text-sm/6 transition-colors ${activeSection === 'about' ? '' : ''
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`text-sm font-medium transition-colors hover:text-[#0066ff] ${
+                pathname === item.href
+                  ? 'text-[#0066ff]'
+                  : 'text-neutral-900 dark:text-neutral-200'
               }`}
-          >
-            About
-          </button>
-          <button
-            onClick={() => scrollToSection('services')}
-            className={`text-sm/6 transition-colors ${activeSection === 'services' ? '' : ''
-              }`}
-          >
-            Services
-          </button>
-          <button
-            onClick={() => scrollToSection('projects')}
-            className={`text-sm/6 transition-colors ${activeSection === 'projects' ? '' : ''
-              }`}
-          >
-            Projects
-          </button>
-          <button
-            onClick={() => scrollToSection('experience')}
-            className={`text-sm/6 transition-colors ${activeSection === 'experience' ? '' : ''
-              }`}
-          >
-            Experiences
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className={`text-sm/6 transition-colors ${activeSection === 'contact' ? '' : ''
-              }`}
-          >
-            Contact
-          </button>
+            >
+              {item.name}
+            </Link>
+          ))}
         </PopoverGroup>
 
+        {/* Social icons */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-5 items-center">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
             <FaInstagram />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
             <FaLinkedinIn />
           </a>
         </div>
       </nav>
 
+      {/* Mobile menu */}
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-neutral-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <button onClick={() => scrollToSection('home')} className="-m-1.5 p-1.5">
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="-m-1.5 p-1.5">
               <Image
-                alt=""
-                src="/api/placeholder/100/100"
+                alt="Peoplet Lab logo"
+                src="/assets/peoplet-logo.png"
                 className="h-10 w-auto block dark:hidden"
-                width="100"
-                height="100"
+                width={100}
+                height={100}
               />
               <Image
-                alt=""
-                src="/api/placeholder/100/100"
+                alt="Peoplet Lab logo dark"
+                src="/assets/peoplet-logo.png"
                 className="h-10 w-auto hidden dark:block"
-                width="100"
-                height="100"
+                width={100}
+                height={100}
               />
-            </button>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -152,70 +120,29 @@ export default function Navbar() {
             </button>
           </div>
 
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <div className="flex flex-col gap-5 mt-8">
-                  <button
-                    onClick={() => scrollToSection('about')}
-                    className={`text-sm/6 transition-colors ${activeSection === 'about' ? 'text-blue-500 dark:text-blue-400' : ''
-                      }`}
-                  >
-                    About
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className={`text-sm/6 transition-colors ${activeSection === 'services' ? 'text-blue-500 dark:text-blue-400' : ''
-                      }`}
-                  >
-                    Services
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('projects')}
-                    className={`text-sm/6 transition-colors ${activeSection === 'projects' ? 'text-blue-500 dark:text-blue-400' : ''
-                      }`}
-                  >
-                    Projects
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('experiences')}
-                    className={`text-sm/6 transition-colors ${activeSection === 'projects' ? 'text-blue-500 dark:text-blue-400' : ''
-                      }`}
-                  >
-                    Experiences
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('contact')}
-                    className={`text-sm/6 transition-colors ${activeSection === 'contact' ? 'text-blue-500 dark:text-blue-400' : ''
-                      }`}
-                  >
-                    Contact
-                  </button>
-                </div>
-              </div>
+          <div className="mt-8 flex flex-col gap-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-lg transition-colors ${
+                  pathname === item.href
+                    ? 'text-[#0066ff]'
+                    : 'text-neutral-900 dark:text-neutral-200 hover:text-[#0066ff]'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
 
-              <div className="py-6">
-                <div className="flex flex-row gap-5 mb-5">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
-                    <FaInstagram />
-                  </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
-                    <FaLinkedinIn />
-                  </a>
-                  <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
-                    <FaBehance />
-                  </a>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-500 transition-colors">
-                    <FaGithub />
-                  </a>
-                </div>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-neutral-800 hover:bg-neutral-700 text-sm/6 text-white py-2 px-5 rounded-full flex items-center w-28 transition-colors"
-                >
-                  Contact <span aria-hidden="true" className="font-semibold">&rarr;</span>
-                </button>
-              </div>
+            <div className="mt-8 flex gap-5">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
+                <FaInstagram />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
+                <FaLinkedinIn />
+              </a>
             </div>
           </div>
         </DialogPanel>
