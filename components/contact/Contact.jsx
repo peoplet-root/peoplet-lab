@@ -9,9 +9,12 @@ const TerminalContact = () => {
   const inputRef = useRef(null);
 
   return (
-    <section className="relative px-4 py-20 overflow-hidden rounded-[80px] bg-[#0066ff] m-2 text-white">
+    <section
+      id="contact"
+      className="relative mx-auto mt-12 w-full max-w-[1300px] overflow-hidden rounded-[32px] px-4 py-20 text-white sm:mt-16 sm:px-6 md:rounded-[56px] md:py-24 lg:rounded-[80px]"
+    >
       {/* Floating blue shapes like Hero */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 opacity-20">
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
@@ -29,13 +32,10 @@ const TerminalContact = () => {
         ))}
       </div>
 
-      {/* Blue gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00aaff22] via-[#0066ff22] to-[#00113355] blur-3xl"></div>
-
       {/* Section Heading */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-5xl md:text-6xl font-semibold mb-4">Let’s Talk</h1>
-        <p className="text-lg text-white/80 max-w-xl mx-auto">
+      <div className="relative z-10 mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+        <h1 className="mb-4 text-3xl font-semibold sm:text-5xl md:text-6xl text-black">Let’s Talk</h1>
+        <p className="mx-auto max-w-xl text-base text-black sm:text-lg">
           Have an idea, project, or collaboration in mind?  
           Start typing below — our terminal is listening.
         </p>
@@ -45,7 +45,7 @@ const TerminalContact = () => {
       <div
         ref={containerRef}
         onClick={() => inputRef.current?.focus()}
-        className="relative h-[480px] bg-slate-950/70 backdrop-blur-xl rounded-[5px] w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono text-white z-10 border border-white/10"
+        className="relative z-10 mx-auto h-[420px] w-full max-w-3xl cursor-text overflow-y-scroll rounded-[12px] border border-white/10 bg-slate-950/70 font-mono text-white shadow-xl backdrop-blur-xl sm:h-[460px] md:h-[480px]"
       >
         <TerminalHeader />
         <TerminalBody inputRef={inputRef} containerRef={containerRef} />
@@ -61,7 +61,7 @@ const TerminalHeader = () => {
       <div className="w-3 h-3 rounded-full bg-yellow-500" />
       <div className="w-3 h-3 rounded-full bg-green-500" />
       <span className="text-sm text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
-        contact@peoplet.io
+        info@peoplet.io
       </span>
     </div>
   );
@@ -88,7 +88,7 @@ const TerminalBody = ({ containerRef, inputRef }) => {
   };
 
   return (
-    <div className="p-4 text-slate-100 text-lg">
+    <div className="p-4 text-base text-slate-100 sm:text-lg">
       <InitialText />
       <PreviousQuestions questions={questions} />
       <CurrentQuestion curQuestion={curQuestion} />
@@ -112,7 +112,7 @@ const TerminalBody = ({ containerRef, inputRef }) => {
 
 const InitialText = () => (
   <>
-    <p>Hey there! Let’s connect 🤝</p>
+    <p>Hey there! Let's talk 🤝</p>
     <p className="whitespace-nowrap overflow-hidden font-light">
       ------------------------------------------------------------------------
     </p>
@@ -179,12 +179,14 @@ const Summary = ({ questions, setQuestions }) => {
       ) : (
         <div className="flex gap-2 mt-4">
           <button
+            type="button"
             onClick={handleReset}
             className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-slate-100 text-black"
           >
             Restart
           </button>
           <button
+            type="button"
             onClick={handleSend}
             className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-white text-[#0066ff]"
           >

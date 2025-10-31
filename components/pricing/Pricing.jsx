@@ -1,196 +1,176 @@
-"use client";
+'use client';
 
 import React from "react";
-import Reveal from "../util/Reveal";
-import { generateFloatingShapes } from "../util/generateFloatingShapes";
-
-const plans = [
-  {
-    name: "Starter",
-    tagline: "Perfect for individuals & freelancers",
-    price: "$49",
-    period: "/month",
-    features: [
-      "Basic web design & hosting",
-      "Single-page portfolio or landing page",
-      "Email support",
-      "Basic analytics dashboard",
-    ],
-    accent: "gray",
-  },
-  {
-    name: "Professional",
-    tagline: "Ideal for startups & growing teams",
-    price: "$149",
-    period: "/month",
-    features: [
-      "Custom web app or website",
-      "Complete branding & design system",
-      "Priority customer support",
-      "Advanced analytics & reports",
-    ],
-    accent: "blue",
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    tagline: "For organizations & agencies",
-    price: "Custom",
-    period: "pricing",
-    features: [
-      "Full-stack product development",
-      "UX/UI design & strategy",
-      "Network Science integration",
-      "Dedicated support & SLA",
-    ],
-    accent: "gray",
-  },
-];
-
-const pricingShapeSets = plans.map((_, index) =>
-  generateFloatingShapes({
-    count: 6,
-    seed: 100 + index,
-    delayStep: 0.6,
-    widthRange: [15, 45],
-    heightRange: [15, 45],
-  })
-);
+import { FiCheck, FiX } from "react-icons/fi";
+import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-32 px-6 max-w-[1300px] mx-auto">
-      {/* Header */}
-      <Reveal>
-        <h1 className="text-4xl md:text-6xl font-semibold text-center mb-6">
-          Pricing made simple
-        </h1>
-      </Reveal>
-      <Reveal>
-        <p className="text-gray-600 text-left max-w-2xl mx-auto mb-20">
-          Choose the plan that fits your goals — whether you’re just starting out,
-          scaling your team, or running a global organization.
-        </p>
-      </Reveal>
+    <div className="flex min-h-screen w-full items-center justify-center bg-white">
+      <section className="relative flex w-full max-w-[1920px] items-center justify-center bg-[#0066ff] text-white rounded-[80px] py-20 px-6 md:px-10 overflow-hidden">
+        {/* Dekorativni oblici */}
+        <div className="absolute inset-0 opacity-20">
+          {/* Veliki kvadrati */}
+          <div className="absolute top-[-40px] left-[-40px] w-64 h-64 bg-blue-400 rounded-2xl animate-float"></div>
+          <div className="absolute top-1/4 right-[-60px] w-80 h-80 bg-blue-500 rounded-3xl animate-drift delay-[0.5s]"></div>
+          <div className="absolute bottom-[-60px] left-1/3 w-72 h-72 bg-blue-300 rounded-xl animate-float delay-[1s]"></div>
+          <div className="absolute bottom-[-80px] right-1/4 w-96 h-96 bg-blue-600 rounded-3xl animate-drift delay-[1.5s]"></div>
 
-      {/* Grid */}
-      <div className="grid gap-10 md:grid-cols-3 md:items-stretch">
-        {plans.map((plan, index) => (
-          <Reveal key={index}>
+          {/* Srednji i mali kvadrati */}
+          <div className="absolute top-10 left-20 w-20 h-20 bg-blue-400 rounded-lg animate-float"></div>
+          <div className="absolute bottom-10 right-16 w-24 h-24 bg-blue-200 rounded-lg animate-drift"></div>
+          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-blue-500 rounded-md animate-float delay-[1s]"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-20 h-20 bg-blue-300 rounded-xl animate-float delay-[1.2s]"></div>
+
+          {/* Krugovi */}
+          <div className="absolute top-1/4 left-1/2 w-12 h-12 bg-blue-300 rounded-full animate-drift delay-[1.5s]"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-10 h-10 bg-blue-200 rounded-full animate-float"></div>
+
+          {/* Trokuti (rotirani kvadrati) */}
+          <div className="absolute top-1/3 left-1/4 w-8 h-8 bg-blue-500 rotate-45 animate-float opacity-40"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-10 h-10 bg-blue-400 rotate-45 animate-drift delay-[2s] opacity-40"></div>
+
+          {/* Mali random oblici */}
+          {[...Array(10)].map((_, i) => (
             <div
-              className={`relative flex h-[560px] w-full max-w-[380px] flex-col items-center overflow-hidden rounded-[36px] border p-10 text-center shadow-sm transition-all duration-300
-                ${
-                  plan.accent === "blue"
-                    ? "bg-[#0066ff] text-white shadow-xl"
-                    : "bg-white border-gray-200 hover:border-[#0066ff] hover:shadow-md"
-                }`}
-            >
-              {/* Floating animated shapes */}
-              <div className="absolute inset-0 opacity-15 pointer-events-none">
-                {pricingShapeSets[index].map((shape, i) => (
-                  <div
-                    key={i}
-                    className={`absolute bg-blue-${
-                      [200, 300, 400, 500][i % 4]
-                    } rounded-${i % 2 ? "full" : "lg"} animate-float`}
-                    style={shape}
-                  ></div>
-                ))}
-              </div>
+              key={i}
+              className={`absolute bg-blue-${[200,300,400,500][i % 4]} rounded-${i % 2 ? "full" : "lg"} animate-float opacity-30`}
+              style={{
+                top: `${Math.random() * 90}%`,
+                left: `${Math.random() * 90}%`,
+                width: `${Math.random() * 20 + 10}px`,
+                height: `${Math.random() * 20 + 10}px`,
+                animationDelay: `${i * 0.4}s`,
+              }}
+            ></div>
+          ))}
+        </div>
 
-              {/* Badge */}
-              {plan.popular && (
-                <div className="absolute top-6 right-6 bg-white text-[#0066ff] text-xs font-semibold px-4 py-1 rounded-full shadow-sm">
-                  Most Popular
-                </div>
-              )}
+        {/* Glavni sadržaj */}
+        <div className="relative z-10 mx-auto max-w-5xl w-full">
+          <div className="mb-12 space-y-3 text-center">
+            <h2 className="text-white text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+              Pricing
+            </h2>
+            <p className="text-base text-white md:text-lg">
+              Use it for free for yourself, upgrade when your team needs advanced control.
+            </p>
+          </div>
 
-              {/* Content */}
-              <div className="relative z-10 flex h-full w-full flex-col justify-between">
-                <div className="flex flex-col items-center">
-                  <div
-                    className={`text-xs font-medium rounded-full px-4 py-1 mb-5 ${
-                      plan.accent === "blue"
-                        ? "bg-white/20 text-white"
-                        : "bg-black text-white"
-                    }`}
-                  >
-                    {plan.name}
-                  </div>
-
-                  <h2
-                    className={`text-lg md:text-xl font-semibold mb-3 leading-tight ${
-                      plan.accent === "blue" ? "text-white" : "text-gray-900"
-                    }`}
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {plan.tagline}
-                  </h2>
-
-                  <div className="my-4">
-                    <span
-                      className={`text-5xl font-bold ${
-                        plan.accent === "blue" ? "text-white" : "text-black"
-                      }`}
-                    >
-                      {plan.price}
-                    </span>
-                    <span
-                      className={`block text-sm mt-1 ${
-                        plan.accent === "blue"
-                          ? "text-white/70"
-                          : "text-gray-500"
-                      }`}
-                    >
-                      {plan.period}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Features */}
-                <ul className="mx-auto mt-6 mb-8 flex w-full max-w-[250px] flex-1 flex-col justify-center space-y-3 text-sm">
-                  {plan.features.map((feature, i) => (
-                    <li
-                      key={i}
-                      className={`${
-                        plan.accent === "blue"
-                          ? "text-white/90"
-                          : "text-gray-700"
-                      }`}
-                      style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                      }}
-                    >
-                      • {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Button */}
-                <div className="mt-auto flex justify-center">
-                  <button
-                    className={`rounded-full px-6 py-3 font-medium shadow-sm transition ${
-                      plan.accent === "blue"
-                        ? "bg-white text-[#0066ff] hover:bg-neutral-100"
-                        : "bg-black text-white hover:bg-[#0066ff]"
-                    }`}
-                  >
-                    {plan.price === "Custom" ? "Contact Us" : "Get Started"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <PriceCard
+              tier="Free"
+              price="$0/mo"
+              bestFor="Best for 1-5 users"
+              CTA={<GhostButton className="w-full">Get started free</GhostButton>}
+              benefits={[
+                { text: "One workspace", checked: true },
+                { text: "Email support", checked: true },
+                { text: "1 day data retention", checked: false },
+                { text: "Custom roles", checked: false },
+                { text: "Priority support", checked: false },
+                { text: "SSO", checked: false },
+              ]}
+            />
+            <PriceCard
+              tier="Pro"
+              price="$79/mo"
+              bestFor="Best for 5-50 users"
+              CTA={
+                <GhostButton className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 hover:text-zinc-900">
+                  14-day free trial
+                </GhostButton>
+              }
+              benefits={[
+                { text: "Five workspaces", checked: true },
+                { text: "Email support", checked: true },
+                { text: "7 day data retention", checked: true },
+                { text: "Custom roles", checked: true },
+                { text: "Priority support", checked: false },
+                { text: "SSO", checked: false },
+              ]}
+            />
+            <PriceCard
+              tier="Enterprise"
+              price="Contact us"
+              bestFor="Best for 50+ users"
+              CTA={<GhostButton className="w-full">Contact us</GhostButton>}
+              benefits={[
+                { text: "Unlimited workspaces", checked: true },
+                { text: "Email support", checked: true },
+                { text: "30 day data retention", checked: true },
+                { text: "Custom roles", checked: true },
+                { text: "Priority support", checked: true },
+                { text: "SSO", checked: true },
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
+
+/* --- Ostale komponente ostaju iste --- */
+const PriceCard = ({ tier, price, bestFor, CTA, benefits }) => (
+  <Card>
+    <div className="flex flex-col items-center border-b pb-6">
+      <span className="mb-6 inline-block text-zinc-50">{tier}</span>
+      <span className="mb-3 inline-block text-4xl font-medium">{price}</span>
+      <span className="bg-gradient-to-br from-zinc-200 to-zinc-500 bg-clip-text text-center text-transparent">
+        {bestFor}
+      </span>
+    </div>
+
+    <div className="space-y-4 py-9">
+      {benefits.map((b, i) => (
+        <Benefit {...b} key={i} />
+      ))}
+    </div>
+
+    {CTA}
+  </Card>
+);
+
+const Benefit = ({ text, checked }) => (
+  <div className="flex items-center gap-3">
+    {checked ? (
+      <span className="grid size-5 place-content-center rounded-full bg-blue-600 text-sm text-zinc-50">
+        <FiCheck />
+      </span>
+    ) : (
+      <span className="grid size-5 place-content-center rounded-full bg-zinc-800 text-sm text-zinc-400">
+        <FiX />
+      </span>
+    )}
+    <span className="text-sm text-white">{text}</span>
+  </div>
+);
+
+const Card = ({ className, children, style = {} }) => (
+  <motion.div
+    initial={{ filter: "blur(2px)", opacity: 0, y: 20 }}
+    whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeInOut", delay: 0.15 }}
+    style={style}
+    className={twMerge(
+      "relative h-full w-full overflow-hidden rounded-2xl border border-zinc-700 bg-gradient-to-br from-zinc-700/50 to-zinc-900/80 p-6",
+      className
+    )}
+  >
+    {children}
+  </motion.div>
+);
+
+const GhostButton = ({ children, className, ...rest }) => (
+  <button
+    className={twMerge(
+      "rounded-md px-4 py-2 text-lg text-zinc-100 transition-all hover:scale-[1.02] hover:bg-zinc-800 hover:text-zinc-50 active:scale-[0.98]",
+      className
+    )}
+    {...rest}
+  >
+    {children}
+  </button>
+);

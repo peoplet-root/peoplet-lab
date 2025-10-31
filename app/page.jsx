@@ -4,9 +4,9 @@ import Footer from "@/components/footer/Footer";
 import Hero from "@/components/hero/Hero";
 import Navbar from "@/components/navbar/Navbar";
 import ScrollServices from "@/components/scrollservices/ScrollServices";
-import ProjectsSection from "@/components/projects/ProjectsSection";
 import Pricing from "@/components/pricing/Pricing";
 import PeopletApp from "@/components/peopletapp/PeopletApp";
+import BentoGrid from "@/components/bentogrid/BentoGrid";
 
 export default function Home() {
   return (
@@ -17,8 +17,8 @@ export default function Home() {
         <About />
         <ScrollServices />
         <PeopletApp />
+        <BentoGrid />
         <Pricing />
-        <ProjectsSection />
         <Contact />
       </main>
       <Footer />

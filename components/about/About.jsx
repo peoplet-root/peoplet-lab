@@ -7,10 +7,10 @@ import { SiBehance, SiDribbble, SiGithub, SiLinkedin, SiTiktok } from "react-ico
 
 export default function About() {
   return (
-    <section id="about" className="section-wrapper max-w-[1300px] mx-auto pt-40">
-      <div className="mx-6">
-        <h1 className="md:text-6xl text-4xl mb-10 font-bold">About Peoplet Lab</h1>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">
+    <section id="about" className="section-wrapper mx-auto w-full max-w-[1300px] px-4 py-24 sm:px-6 md:py-32">
+      <div className="mx-auto w-full">
+        <h1 className="mb-8 text-3xl font-bold md:mb-10 md:text-6xl">About Peoplet Lab</h1>
+        <div className="grid grid-cols-1 gap-8">
           <div className="space-y-4">
             <Reveal>
               <p className="leading-relaxed">

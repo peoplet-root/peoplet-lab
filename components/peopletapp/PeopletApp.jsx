@@ -8,7 +8,10 @@ const appShapes = generateFloatingShapes({ count: 8, seed: 2, delayStep: 0.5 });
 
 const PeopletApp = () => {
   return (
-    <section className="m-2 relative bg-[#0066ff] rounded-[80px] overflow-hidden">
+    <section
+      id="experience"
+      className="relative mx-auto mt-12 w-full max-w-[1920px] overflow-hidden rounded-[32px] bg-[#0066ff] px-4 sm:mt-16 sm:px-6 md:rounded-[56px] lg:rounded-[80px] lg:py-32"
+    >
       {/* --- Decorative floating rectangles (same as Hero) --- */}
       <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 opacity-20 pointer-events-none">
         {/* Original shapes */}
@@ -29,18 +32,15 @@ const PeopletApp = () => {
       </div>
 
       {/* --- Main content --- */}
-      <div
-        id="about"
-        className="relative section-wrapper max-w-[1300px] flex justify-center items-center mx-auto text-center py-40 text-white z-10"
-      >
-        <div className="mx-6 flex flex-col items-center justify-center">
-          <h1 className="md:text-6xl text-4xl mb-10 font-semibold">
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-center py-24 text-center text-white sm:py-32 lg:py-40">
+        <div className="flex flex-col items-center justify-center gap-6 px-2 sm:px-6">
+          <h1 className="text-3xl font-semibold md:text-5xl lg:text-6xl">
             Get <span className="italic">Peoplet</span> App
           </h1>
 
           <div className="max-w-3xl space-y-6">
             <Reveal>
-              <p className="leading-relaxed text-lg text-white">
+              <p className="text-base leading-relaxed text-white md:text-lg">
                 <span className="font-semibold italic">Peoplet </span>App enables
                 users to explore and visualize complex networks through
                 interactive, intuitive, and data-driven visual representations —
@@ -48,7 +48,7 @@ const PeopletApp = () => {
               </p>
             </Reveal>
             <Reveal>
-              <p className="leading-relaxed text-lg text-white">
+              <p className="text-base leading-relaxed text-white md:text-lg">
                 With <span className="font-semibold italic">Peoplet </span>App,
                 users can turn complex data into clear, interactive visualizations
                 that reveal how people, ideas, and systems connect — empowering
@@ -57,13 +57,13 @@ const PeopletApp = () => {
             </Reveal>
 
             {/* Centered Button */}
-            <div className="flex justify-center mt-8">
+            <div className="mt-6 flex justify-center">
               <Link
                 href="http://client.peoplet.io"
                 target="_blank"
                 rel="nofollow"
               >
-                <button className="flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition shadow-sm bg-white text-black">
+                <button type="button" className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-medium text-black shadow-sm transition">
                   <span>Find out more</span>
                   <ExternalLink size={16} strokeWidth={2} />
                 </button>

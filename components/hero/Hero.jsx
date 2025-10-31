@@ -5,8 +5,8 @@ const heroShapes = generateFloatingShapes({ count: 8, seed: 1, delayStep: 0.5 })
 
 export default function Hero() {
   return (
-    <section className="px-2">
-      <div className="relative bg-[#0066ff] w-full min-h-screen overflow-hidden rounded-[80px]">
+    <section className="px-2 flex justify-center">
+      <div className="relative bg-[#0066ff] w-full max-w-[1920px] min-h-[800px] overflow-hidden rounded-[80px]">
         {/* Dekorativna grid pozadina */}
         <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 opacity-20">
           {/* Originalni kvadrati */}
@@ -27,14 +27,14 @@ export default function Hero() {
         </div>
 
         {/* Glavni sadržaj */}
-        <div className="relative max-w-[1300px] mx-auto px-6 py-40 text-white z-10">
+        <div className="relative max-w-[1300px] mx-auto px-6 py-40 lg:items-center text-white z-10">
           <Reveal>
             <h1 className="lg:text-7xl text-5xl font-bold mb-8 leading-tight">
               Empowering Ideas Through Design & Development
             </h1>
           </Reveal>
           <Reveal>
-            <p className="md:max-w-3xl text-lg font-light">
+            <p className="md:max-w-4xl text-lg md:text-2xl font-normal">
               Peoplet Ltd. is a digital studio connecting people, ideas, and
               technology — through strategy, design, and development.
             </p>

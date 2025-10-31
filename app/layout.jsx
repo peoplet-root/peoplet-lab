@@ -12,6 +12,11 @@ const poppins = Poppins({
 export const metadata = {
   title: "Peoplet Lab",
   description: "Peoplet Lab",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/favicon.png",
