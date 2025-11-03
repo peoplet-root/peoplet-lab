@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const experiments = [
+const projects = [
   {
-    title: "Graph-based People Mapper",
-    desc: "A prototype for visualizing team networks and collaboration flows using graph science.",
+    title: "Peoplet Platform",
+    desc: "A social intelligence platform that maps how people and ideas connect — blending data, visualization, and human insight.",
   },
   {
-    title: "Smart Booking Flow",
-    desc: "An internal concept exploring better UX for appointment scheduling and service management.",
+    title: "Graph Interface System",
+    desc: "An interactive environment for exploring relationships through dynamic, force-based visualizations and network analysis.",
   },
   {
-    title: "AI Color Matcher",
-    desc: "An experimental AI tool that finds perfect color palettes from brand values and emotions.",
+    title: "Design Language Toolkit",
+    desc: "A growing system of reusable design patterns, colors, and motion principles — shaping the visual identity of Peoplet products.",
   },
 ];
 
@@ -28,7 +28,8 @@ export default function ExperimentsSection() {
       top: Math.random() * 100,
       left: Math.random() * 100,
       delay: Math.random() * 5,
-      color: Math.random() > 0.5 ? "rgba(255,255,255,0.25)" : "rgba(0,230,184,0.25)",
+      color:
+        Math.random() > 0.5 ? "rgba(255,255,255,0.25)" : "rgba(0,230,184,0.25)",
     }));
     setSquares(newSquares);
   }, []);
@@ -73,7 +74,7 @@ export default function ExperimentsSection() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-6xl font-semibold mb-10"
           >
-            <span className="italic text-[#fff]">Peoplet Lab</span> Experiments
+            What We're <span className="italic text-[#fff]">Building</span>
           </motion.h2>
 
           <motion.p
@@ -82,12 +83,13 @@ export default function ExperimentsSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-gray-100 max-w-2xl mx-auto mb-16 text-lg"
           >
-            Experimental ideas and prototypes built inside Peoplet Lab — a space
-            for exploring creativity, design, and new forms of technology.
+            Inside Peoplet Lab, we’re building products and systems that connect
+            people, organizations, and data — exploring how design and
+            technology can make collaboration more visible and meaningful.
           </motion.p>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {experiments.map((exp, i) => (
+            {projects.map((proj, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -95,8 +97,10 @@ export default function ExperimentsSection() {
                 transition={{ duration: 0.6, delay: i * 0.2 }}
                 className="border border-white/70 rounded-3xl p-8 text-left bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all relative z-20"
               >
-                <h3 className="text-2xl font-semibold mb-3 text-white">{exp.title}</h3>
-                <p className="text-white/90 leading-relaxed">{exp.desc}</p>
+                <h3 className="text-2xl font-semibold mb-3 text-white">
+                  {proj.title}
+                </h3>
+                <p className="text-white/90 leading-relaxed">{proj.desc}</p>
               </motion.div>
             ))}
           </div>

@@ -18,13 +18,12 @@ export default function Home() {
         <Hero />
         <About />
         <ScrollServices />
-        <ProcessSection />
         <ExeprimentsSection />
+        <ProcessSection />
         <PeopletApp />
         <BentoGrid />
         <Contact />
       </main>
-      <Footer />
     </>
   );
 }

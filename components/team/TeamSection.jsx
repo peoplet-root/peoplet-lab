@@ -24,15 +24,15 @@ export default function TeamSection() {
     {
       name: "Dino Pitoski",
       role: "CEO & Data Scientist",
-      desc: "Passionate about human-centered technology, systems thinking, and crafting digital experiences that bridge creativity and data.",
+      desc: "Merges design and development into one creative process. Believes that good technology should feel simple, emotional, and honest — transforming ideas into experiences that people actually enjoy using.",
       image: "/assets/team/robertino.jpg",
       skills: ["Network Science", "Prototyping", "Data Visualization", "AI Tools"],
     },
     {
       name: "Robertino Puhanić",
       role: "Full-stack Developer & Designer",
-      desc: "Passionate about human-centered technology, systems thinking, and crafting digital experiences that bridge creativity and data.",
-      image: "/assets/team/robertino.jpg",
+      desc: "Merges design and development into one creative process. Believes that good technology should feel simple, emotional, and honest — transforming ideas into experiences that people actually enjoy using.",
+      image: "/assets/image.jpg",
       skills: ["Web Development", "UI/UX Design", "Graphic Design", "Social Media"],
     },
   ];
@@ -99,7 +99,7 @@ export default function TeamSection() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover"
+                  className="object-cover border border-white"
                 />
               </div>
 

@@ -84,7 +84,7 @@ export default function ProcessSection() {
               </p>
 
               {/* Broj */}
-              <div className="absolute top-6 right-8 text-5xl font-black text-gray-200 opacity-20 select-none group-hover:opacity-30 transition">
+              <div className="absolute top-6 right-8 text-5xl font-black text-gray-200 opacity-50 select-none group-hover:opacity-30 transition">
                 {step.id}
               </div>
             </motion.div>

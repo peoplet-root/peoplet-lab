@@ -2,6 +2,7 @@ export const metadata = {
   title: "About | Peoplet Lab",
 };
 
+import ApproachSection from "@/components/approachsection/Approach";
 import TeamSection from "@/components/team/TeamSection";
 import WhyPeoplet from "@/components/whypeoplet/WhyPeoplet";
 
@@ -10,6 +11,7 @@ export default function AboutPage() {
     <main>
       <WhyPeoplet />
       <TeamSection /> 
+      <ApproachSection />
     </main>
   );
 }

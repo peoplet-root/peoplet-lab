@@ -2,7 +2,7 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#0e0e0e] text-white py-16 mt-32 border-t border-zinc-800">
+    <footer className="relative w-full bg-[#0e0e0e] text-white py-16 mt-32 border-t border-zinc-800 lg:rounded-t-[80px] rounded-t-[30px]">
       <div className="max-w-[1300px] mx-auto px-6 flex flex-col md:flex-row md:justify-between gap-12">
         {/* Left Section */}
         <div className="flex-1">

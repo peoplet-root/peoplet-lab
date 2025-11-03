@@ -90,7 +90,7 @@ const Content = ({ setFeatureInView, featureInView }) => {
           <p className="text-sm uppercase text-gray-500 tracking-widest mb-3">
             Peoplet Lab
           </p>
-          <h2 className="text-5xl font-bold mb-4">{featureInView.title}</h2>
+          <h2 className="md:text-6xl text-3xl font-bold mb-4">{featureInView.title}</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
             {featureInView.desc}
           </p>
