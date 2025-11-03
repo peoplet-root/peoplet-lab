@@ -22,7 +22,6 @@ export default function Home() {
         <ExeprimentsSection />
         <PeopletApp />
         <BentoGrid />
-        <Pricing />
         <Contact />
       </main>
       <Footer />
