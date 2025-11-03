@@ -25,6 +25,12 @@ export default function Footer() {
             <li className="hover:text-white transition">Data Automation</li>
           </ul>
         </div>
+        <div>
+          <h3 className="text-lg font-medium mb-4">Products</h3>
+          <ul className="space-y-2 text-gray-400">
+            <li className="hover:text-white transition">Peoplet App</li>
+          </ul>
+        </div>
 
         {/* Right Section */}
         <div>

@@ -21,7 +21,6 @@ export default function Home() {
         <ExeprimentsSection />
         <ProcessSection />
         <PeopletApp />
-        <BentoGrid />
         <Contact />
       </main>
     </>

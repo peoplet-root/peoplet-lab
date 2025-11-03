@@ -48,21 +48,8 @@ export default function BentoGrid() {
               key={card.title}
               className={`relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${card.layout}`}
             >
-              {/* Dekorativni animirani oblici */}
-              <div className="absolute inset-0 opacity-15">
-                {/* Veći kvadrat */}
-                <div className="absolute top-[-30px] left-[-30px] w-40 h-40 bg-blue-200 rounded-xl animate-float"></div>
-                {/* Mali kvadrat */}
-                <div className="absolute bottom-[-20px] right-[-20px] w-24 h-24 bg-blue-400 rounded-lg animate-drift delay-[0.5s]"></div>
-                {/* Horizontalna linija */}
-                <div className="absolute top-1/2 left-10 w-32 h-[2px] bg-blue-300 animate-float opacity-60"></div>
-                {/* Rotirani kvadrat */}
-                <div className="absolute bottom-1/4 right-1/3 w-12 h-12 bg-blue-500 rotate-45 animate-drift opacity-40 delay-[1s]"></div>
-              </div>
-
-              {/* Sadržaj kartice */}
               <div className="relative z-10">
-                <span className="inline-flex px-2 py-1 items-center justify-center rounded-full bg-black/90 text-xs tracking-wide text-white">
+                <span className="inline-flex px-2 py-1 items-center justify-center rounded-full bg-[#0066ff] text-xs tracking-wide text-white">
                   {card.title}
                 </span>
                 <h3 className="mt-6 text-2xl font-semibold text-gray-900">

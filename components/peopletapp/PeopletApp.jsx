@@ -62,8 +62,7 @@ const PeopletApp = () => {
               {/* Centered Button */}
               <div className="mt-6 flex justify-center">
                 <Link
-                  href="http://client.peoplet.io"
-                  target="_blank"
+                  href="/products"
                   rel="nofollow"
                 >
                   <button type="button" className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-medium text-black shadow-sm transition">
