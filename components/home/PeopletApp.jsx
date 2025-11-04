@@ -10,7 +10,7 @@ const PeopletApp = () => {
   return (
     <section
       id="experience"
-      className="px-2 flex justify-center"
+      className="px-2 flex justify-center mb-32"
     >
       <div
         className="relative mx-auto mt-12 w-full max-w-[1920px] overflow-hidden bg-[#0066ff] px-4 sm:mt-16 sm:px-6 md:rounded-[80px] rounded-[30px] lg:py-32"

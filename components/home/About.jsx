@@ -1,15 +1,12 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Reveal from "../util/Reveal";
-import { Stats } from "./Stats";
-import MyLinks from "./MyLinks";
 import Link from "next/link";
-import { SiBehance, SiDribbble, SiGithub, SiLinkedin, SiTiktok } from "react-icons/si";
 
 export default function About() {
   return (
     <section id="about" className="section-wrapper mx-auto w-full max-w-[1300px] px-4 py-24 sm:px-6 md:py-32">
       <div className="mx-auto w-full">
-        <h1 className="mb-8 text-3xl font-bold md:mb-10 md:text-6xl">About <span className="italic text-[#0066ff]">Peoplet Lab</span></h1>
+        <h1 className="mb-8 text-4xl font-bold md:mb-10 md:text-6xl">About <span className="italic text-[#0066ff]">Peoplet Lab</span></h1>
         <div className="grid grid-cols-1 gap-8">
           <div className="space-y-4">
             <Reveal>

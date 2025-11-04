@@ -10,8 +10,7 @@ const TerminalContact = () => {
 
   return (
     <section
-      id="contact"
-      className="relative mx-auto mt-12 w-full max-w-[1300px] overflow-hidden rounded-[32px] px-4 py-20 text-white sm:mt-16 sm:px-6 md:rounded-[56px] md:py-24 lg:rounded-[80px]"
+      className="relative mx-auto w-full max-w-[1300px] overflow-hidden px-4 text-white sm:mt-16 sm:px-6"
     >
       {/* Floating blue shapes like Hero */}
       <div className="pointer-events-none absolute inset-0 opacity-20">

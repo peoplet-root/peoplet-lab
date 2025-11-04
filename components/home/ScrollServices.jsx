@@ -15,10 +15,9 @@ const SwapColumnFeatures = () => {
     <section className="relative mx-auto max-w-7xl">
       {/* Naslov */}
       <div className="px-6 pt-24 md:pt-32 text-left">
-        <h1 className="mb-8 text-3xl font-bold md:mb-10 md:text-6xl">
+        <h1 className="mb-8 text-4xl font-bold md:mb-10 md:text-6xl">
           What <span className="italic text-[#0066ff]">Peoplet </span>{" "}Do Best
         </h1>
-
       </div>
 
       <SlidingFeatureDisplay featureInView={featureInView} />
@@ -90,8 +89,8 @@ const Content = ({ setFeatureInView, featureInView }) => {
           <p className="text-sm uppercase text-gray-500 tracking-widest mb-3">
             Peoplet Lab
           </p>
-          <h2 className="md:text-6xl text-3xl font-bold mb-4">{featureInView.title}</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-8">
+          <h2 className="md:text-6xl text-2xl font-bold mb-4">{featureInView.title}</h2>
+          <p className="text-gray-600 text-md md:text-lg leading-relaxed mb-8">
             {featureInView.desc}
           </p>
         </motion.div>

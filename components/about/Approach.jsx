@@ -28,7 +28,7 @@ export default function ApproachSection() {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center bg-white text-black overflow-hidden rounded-[30px] lg:rounded-[80px] py-32 px-6 max-w-[1920px] mx-auto">
+    <section className="relative flex items-center justify-center text-black overflow-hidden rounded-[30px] lg:rounded-[80px] py-32 px-6 max-w-[1920px] mx-auto">
       {/* 🔷 Animirani kvadrati */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {squares.map((sq) => (

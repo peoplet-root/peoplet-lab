@@ -1,5 +1,5 @@
-import BentoGrid from "@/components/bentogrid/BentoGrid";
-import ProductsSection from "@/components/productssection/ProductsSection";
+import BentoGrid from "@/components/products/BentoGrid";
+import ProductsSection from "@/components/products/ProductsSection";
 
 export const metadata = {
   title: "Products | Peoplet Lab",

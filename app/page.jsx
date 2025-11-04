@@ -1,15 +1,10 @@
-import About from "@/components/about/About";
+import About from "@/components/home/About";
 import Contact from "@/components/contact/Contact";
-import Footer from "@/components/footer/Footer";
-import Hero from "@/components/hero/Hero";
-import ScrollServices from "@/components/scrollservices/ScrollServices";
-import Pricing from "@/components/pricing/Pricing";
-import PeopletApp from "@/components/peopletapp/PeopletApp";
-import BentoGrid from "@/components/bentogrid/BentoGrid";
-import ProcessSection from "@/components/process/ProcessSection";
-import WhyPeoplet from "@/components/whypeoplet/WhyPeoplet";
-import ExeprimentsSection from "@/components/experiments/ExperimentsSection";
-import TeamSection from "@/components/team/TeamSection";
+import Hero from "@/components/home/Hero";
+import ScrollServices from "@/components/home/ScrollServices";
+import PeopletApp from "@/components/home/PeopletApp";
+import ProcessSection from "@/components/home/ProcessSection";
+import ExeprimentsSection from "@/components/home/ExperimentsSection";
 
 export default function Home() {
   return (

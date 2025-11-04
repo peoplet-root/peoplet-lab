@@ -52,7 +52,7 @@ const services = [
 
 
   return (
-    <section className="relative w-full text-black py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
+    <section className="relative w-full text-black md:py-32 py-24 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
       {/* 🔷 Animirani kvadrati */}
       <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
         {squares.map((sq) => (

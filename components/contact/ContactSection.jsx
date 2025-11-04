@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const contactOptions = [
   {
-    title: "Collaborate on a project",
+    title: "Get in touch",
     description:
-      "Share your brief or product challenge, and we’ll assemble the right team to help you bring your idea to life.",
-    email: "hello@peopletlab.com",
+      "Whether you’re interested in learning more about our products, need technical support, or simply want to say hello — we’d love to hear from you.",
+    email: "info@peoplet.io",
   },
   {
-    title: "Join the team",
+    title: "Platform questions",
     description:
-      "We’re always meeting designers, developers, and researchers who love to build and experiment together.",
-    email: "talent@peopletlab.com",
+      "Need details about how Peoplet works or how it can fit into your organization? Our team is happy to provide guidance and insights.",
+    email: "info@peoplet.io",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-4xl font-semibold sm:text-5xl text-neutral-900 text-center"
         >
-          Let’s build what’s next
+          Let’s connect
         </motion.h1>
 
         <motion.p
@@ -74,9 +74,8 @@ export default function ContactSection() {
           transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto text-lg text-neutral-600 text-center"
         >
-          Tell us about your goals, challenges, or the ideas you can’t stop
-          thinking about. We’ll get back to you within two business days with
-          the right people from our team.
+          Have a question or want to learn more about what we’re building?
+          Reach out and we’ll get back to you within two business days.
         </motion.p>
       </header>
 
@@ -111,13 +110,9 @@ export default function ContactSection() {
         transition={{ duration: 0.5 }}
         className="rounded-3xl border border-dashed border-[#0066ff]/40 bg-[#0066ff]/5 p-10 text-neutral-900"
       >
-        <h2 className="text-2xl font-semibold mb-3">
-          Prefer to meet live?
-        </h2>
+        <h2 className="text-2xl font-semibold mb-3">Prefer to meet live?</h2>
         <p className="text-neutral-700">
-          We host virtual office hours every Thursday for founders and product
-          leaders exploring new initiatives. Send us a note and we’ll share the
-          next available time.
+          We regularly host virtual office hours for partners, clients, and anyone interested in exploring the platform or learning more about what we're building. Send us a message, and we'll share the next available time.
         </p>
       </motion.section>
     </section>

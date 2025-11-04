@@ -1,5 +1,5 @@
-import ContactSection from "@/components/contactpage/ContactSection";
-import Contact from "@/components/contactpage/Contact";
+import ContactSection from "@/components/contact/ContactSection";
+import Contact from "@/components/contact/Contact";
 
 export const metadata = {
   title: "Contact | Peoplet Lab",

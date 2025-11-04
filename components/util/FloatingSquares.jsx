@@ -14,7 +14,7 @@ const generateSquares = () =>
       size,
       left: Math.random() * 100,
       top: Math.random() * 100,
-      opacity: 0.2 + Math.random() * 0.2, // 🔹 viša prozirnost (0.2 – 0.4)
+      opacity: 0.1 + Math.random() * 0.1, // 🔹 viša prozirnost (0.2 – 0.4)
       duration: 4 + Math.random() * 3, // 🔹 brža animacija (4–7s)
       delay: Math.random() * 2, // 🔹 kraće kašnjenje
       rotate: (Math.random() - 0.5) * 6,

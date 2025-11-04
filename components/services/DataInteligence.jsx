@@ -47,89 +47,91 @@ export default function DataIntelligenceSection() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0066ff] text-white py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
-      {/* 🔷 Animirani kvadrati */}
-      <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
-        {squares.map((sq) => (
-          <motion.div
-            key={sq.id}
-            initial={{ y: 0, opacity: 0.3 }}
-            animate={{
-              y: [0, -25, 0],
-              opacity: [0.2, 0.5, 0.2],
-              rotate: [0, 10, 0],
-            }}
-            transition={{
-              duration: 6 + Math.random() * 5,
-              repeat: Infinity,
-              delay: sq.delay,
-              ease: "easeInOut",
-            }}
-            className="absolute rounded-[6px]"
-            style={{
-              width: `${sq.size}px`,
-              height: `${sq.size}px`,
-              top: `${sq.top}%`,
-              left: `${sq.left}%`,
-              backgroundColor: sq.color,
-            }}
-          />
-        ))}
-      </div>
+    <section className="px-2">
+      <div className="relative w-full bg-[#0066ff] text-white py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
+        {/* 🔷 Animirani kvadrati */}
+        <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
+          {squares.map((sq) => (
+            <motion.div
+              key={sq.id}
+              initial={{ y: 0, opacity: 0.3 }}
+              animate={{
+                y: [0, -25, 0],
+                opacity: [0.2, 0.5, 0.2],
+                rotate: [0, 10, 0],
+              }}
+              transition={{
+                duration: 6 + Math.random() * 5,
+                repeat: Infinity,
+                delay: sq.delay,
+                ease: "easeInOut",
+              }}
+              className="absolute rounded-[6px]"
+              style={{
+                width: `${sq.size}px`,
+                height: `${sq.size}px`,
+                top: `${sq.top}%`,
+                left: `${sq.left}%`,
+                backgroundColor: sq.color,
+              }}
+            />
+          ))}
+        </div>
 
-      {/* 🔹 Naslov i uvod */}
-      <div className="relative z-10 text-center max-w-[900px] mx-auto mb-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-semibold mb-8"
-        >
-          Data Meets <span className="italic">Human Systems</span>
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg leading-relaxed"
-        >
-          Peoplet Lab explores how data and human behavior intersect — using
-          network science and design to visualize relationships, reveal
-          inefficiencies, and guide smarter collaboration.
-        </motion.p>
-      </div>
-
-      {/* 🔸 Grid značajki */}
-      <div className="relative z-10 grid gap-10 md:grid-cols-2 max-w-[1200px] mx-auto">
-        {features.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
+        {/* 🔹 Naslov i uvod */}
+        <div className="relative z-10 text-center max-w-[900px] mx-auto mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            className="bg-white/10 border border-white/30 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-semibold mb-8"
           >
-            <h3 className="text-2xl font-semibold mb-4">
-              {item.title}
-            </h3>
-            <p className="text-neutral-100 leading-relaxed">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+            Data Meets <span className="italic">Human Systems</span>
+          </motion.h2>
 
-      {/* 💬 Zaključna poruka */}
-      <div className="relative z-10 text-center max-w-[900px] mx-auto mt-24">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-lg leading-relaxed"
-        >
-          Data is more than numbers — it’s a mirror of how people connect, create,
-          and grow.  
-          Our mission is to make those patterns visible, useful, and human.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg leading-relaxed"
+          >
+            Peoplet Lab explores how data and human behavior intersect — using
+            network science and design to visualize relationships, reveal
+            inefficiencies, and guide smarter collaboration.
+          </motion.p>
+        </div>
+
+        {/* 🔸 Grid značajki */}
+        <div className="relative z-10 grid gap-10 md:grid-cols-2 max-w-[1200px] mx-auto">
+          {features.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="bg-white/10 border border-white/30 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
+            >
+              <h3 className="text-2xl font-semibold mb-4">
+                {item.title}
+              </h3>
+              <p className="text-neutral-100 leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* 💬 Zaključna poruka */}
+        <div className="relative z-10 text-center max-w-[900px] mx-auto mt-24">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-lg leading-relaxed"
+          >
+            Data is more than numbers — it’s a mirror of how people connect, create,
+            and grow.  
+            Our mission is to make those patterns visible, useful, and human.
+          </motion.p>
+        </div>
       </div>
     </section>
   );
