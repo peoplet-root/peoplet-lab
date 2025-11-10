@@ -32,5 +32,3 @@ export const generateFloatingShapes = ({
     animationDelay: `${formatValue(index * delayStep, 2)}s`,
   }));
 };
-
-export default generateFloatingShapes;

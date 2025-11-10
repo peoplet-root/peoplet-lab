@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import { FiSearch, FiPenTool, FiCode, FiTrendingUp } from "react-icons/fi";
+import Script from "next/script";
 
 const processSteps = [
   {
     id: 1,
     title: "Discovery",
     description:
-      "We dive deep into understanding your goals, audience, and business challenges — turning insights into clear digital direction.",
+      "Every collaboration starts with understanding. We analyze your goals, audience, and digital ecosystem — turning insights into a clear creative and technical direction.",
     icon: <FiSearch />,
     color: "from-[#0066ff] to-[#3399ff]",
   },
@@ -16,7 +17,7 @@ const processSteps = [
     id: 2,
     title: "Design",
     description:
-      "From brand systems to interactive prototypes, we design with empathy — every detail has purpose, clarity, and rhythm.",
+      "We shape ideas into visual and interactive systems. Every layout, color, and animation is designed to communicate purpose and emotion, not just aesthetics.",
     icon: <FiPenTool />,
     color: "from-[#0066ff] to-[#3399ff]",
   },
@@ -24,7 +25,7 @@ const processSteps = [
     id: 3,
     title: "Development",
     description:
-      "We transform ideas into scalable, high-performance products that feel smooth, intuitive, and delightfully human.",
+      "We craft digital experiences through clean, scalable code. From web platforms to interactive interfaces — every project is built for performance and long-term growth.",
     icon: <FiCode />,
     color: "from-[#0066ff] to-[#3399ff]",
   },
@@ -32,7 +33,7 @@ const processSteps = [
     id: 4,
     title: "Growth",
     description:
-      "We measure, improve, and evolve. From user feedback to analytics — your digital product grows with your business.",
+      "We monitor, learn, and evolve. Through analytics, data, and iteration — we help your digital product adapt and thrive in a connected world.",
     icon: <FiTrendingUp />,
     color: "from-[#0066ff] to-[#3399ff]",
   },
@@ -40,7 +41,33 @@ const processSteps = [
 
 export default function ProcessSection() {
   return (
-    <section className="relative w-full py-32 px-6 overflow-hidden">
+    <section
+      id="process"
+      aria-label="Peoplet Studio Design and Development Process"
+      className="relative w-full py-32 px-6 overflow-hidden"
+    >
+      {/* ✅ Schema markup for SEO */}
+      <Script
+        id="process-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: "Peoplet Studio Process",
+            description:
+              "How Peoplet Studio transforms ideas into web applications, designs, and digital platforms — from discovery to growth.",
+            totalTime: "P30D",
+            step: processSteps.map((step, i) => ({
+              "@type": "HowToStep",
+              position: i + 1,
+              name: step.title,
+              text: step.description,
+            })),
+          }),
+        }}
+      />
+
       <div className="absolute inset-0 pointer-events-none" />
 
       <div className="max-w-[1200px] mx-auto text-center relative z-10">
@@ -50,7 +77,8 @@ export default function ProcessSection() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-6xl font-semibold mb-16"
         >
-          How <span className="italic text-[#0066ff]">Peoplet</span> Build Apps
+          How <span className="italic text-[#0066ff]">Peoplet</span> Builds
+          Digital Experiences
         </motion.h2>
 
         <div className="grid md:grid-cols-4 gap-10">

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function ServicesProcessSection() {
   const [squares, setSquares] = useState([]);
@@ -47,7 +48,51 @@ export default function ServicesProcessSection() {
   ];
 
   return (
-    <section className="relative w-full bg-white text-black py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
+    <section
+      id="services-process"
+      aria-label="Peoplet Studio Process Section"
+      className="relative w-full bg-white text-black py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto"
+    >
+      {/* ✅ JSON-LD structured data for Process section */}
+      <Script
+        id="services-process-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: "Peoplet Studio Process",
+            url: "https://www.peoplet.com/services#process",
+            description:
+              "Peoplet Studio’s creative process follows four phases — Discover, Design, Develop, and Deliver & Evolve — blending design, data, and technology.",
+            totalTime: "P1M", // roughly one month average lifecycle
+            supply: [
+              {
+                "@type": "HowToSupply",
+                name: "Design Thinking, Development, Research Workshops",
+              },
+            ],
+            tool: [
+              {
+                "@type": "HowToTool",
+                name: "Next.js, React, Django, Neo4j, Design Systems",
+              },
+            ],
+            step: steps.map((step) => ({
+              "@type": "HowToStep",
+              name: step.title.replace(/^\d+\.\s*/, ""), // remove numbering for clean schema
+              text: step.desc,
+            })),
+            performer: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+            },
+          }),
+        }}
+      />
+
       {/* 🔷 Animirani kvadrati */}
       <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
         {squares.map((sq) => (

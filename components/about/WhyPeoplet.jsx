@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function WhyPeoplet() {
   const [squares, setSquares] = useState([]);
@@ -19,9 +20,38 @@ export default function WhyPeoplet() {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center w-full bg-[#0e0e0e] overflow-hidden px-4 lg:py-60 py-20">
+    <section
+      id="why-peoplet"
+      aria-label="Why Peoplet Exists – Our Mission and Philosophy"
+      className="relative flex items-center justify-center w-full bg-[#0e0e0e] overflow-hidden px-4 lg:py-60 py-20"
+    >
+      {/* ✅ JSON-LD Schema for About/Mission */}
+      <Script
+        id="peoplet-about-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "Why Peoplet Exists",
+            description:
+              "Peoplet Studio designs digital systems that connect people, data, and ideas. Our mission is to create human-centered tools that enhance collaboration, creativity, and transparency.",
+            mainEntity: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+              sameAs: [
+                "https://www.linkedin.com/company/peoplet",
+                "https://www.instagram.com/peoplet.io",
+              ],
+            },
+          }),
+        }}
+      />
+
       {/* Animirani kvadrati */}
-      <div className="absolute inset-0 opacity-25">
+      <div className="absolute inset-0 opacity-25" aria-hidden="true">
         {squares.map((sq) => (
           <motion.div
             key={sq.id}
@@ -48,11 +78,17 @@ export default function WhyPeoplet() {
         ))}
       </div>
 
-      {/* Dekorativni gradient blur slojevi */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#0066ff] to-[#00e6b8] blur-[160px] opacity-10"></div>
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-[#00e6b8] to-[#0066ff] blur-[160px] opacity-10"></div>
+      {/* Dekorativni gradient slojevi */}
+      <div
+        className="absolute top-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#0066ff] to-[#00e6b8] blur-[160px] opacity-10"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-[#00e6b8] to-[#0066ff] blur-[160px] opacity-10"
+        aria-hidden="true"
+      />
 
-      {/* Glavni sadržaj u centru */}
+      {/* Glavni sadržaj */}
       <div className="relative z-10 max-w-[900px] text-center flex flex-col items-center justify-center px-6">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -69,10 +105,11 @@ export default function WhyPeoplet() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-white text-lg leading-relaxed mb-8"
         >
-          At <span className="text-[#0066ff] font-medium">Peoplet Lab</span>, we believe technology
-          should connect people — not isolate them.  
-          Our mission is to design systems that empower collaboration,
-          creativity, and collective intelligence.
+          At <span className="text-[#0066ff] font-medium">Peoplet Studio</span>, we believe that
+          technology should connect, not isolate.  
+          Our mission is to design digital systems that enhance collaboration,
+          creativity, and shared intelligence — empowering people to create and
+          communicate more effectively.
         </motion.p>
 
         <motion.p
@@ -81,9 +118,10 @@ export default function WhyPeoplet() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-white text-lg leading-relaxed"
         >
-          Every project we build begins with empathy and evolves through
-          design thinking — blending logic, beauty, and strategy to
-          create tools that make organizations more connected and transparent.
+          Every product we design begins with empathy and evolves through
+          strategy and design thinking.  
+          By combining aesthetics, logic, and data, we build tools that make
+          organizations more transparent, innovative, and human-centered.
         </motion.p>
       </div>
     </section>

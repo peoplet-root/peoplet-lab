@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView, motion } from "framer-motion";
 
-export const Reveal = ({ children, width = "w-fit" }) => {
+export default function Reveal({ children, width = "w-fit" }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -15,7 +15,7 @@ export const Reveal = ({ children, width = "w-fit" }) => {
       mainControls.start("visible");
       slideControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls, slideControls]);
 
   return (
     <div ref={ref} className={`relative overflow-hidden ${width}`}>
@@ -42,6 +42,4 @@ export const Reveal = ({ children, width = "w-fit" }) => {
       />
     </div>
   );
-};
-
-export default Reveal;
+}

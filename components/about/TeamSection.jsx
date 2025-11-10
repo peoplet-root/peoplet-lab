@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function TeamSection() {
   const [squares, setSquares] = useState([]);
@@ -38,7 +39,40 @@ export default function TeamSection() {
   ];
 
   return (
-    <section className="px-2">
+    <section
+      id="team"
+      aria-label="Peoplet Studio Team Section"
+      className="px-2"
+    >
+      {/* ✅ JSON-LD structured data for Team section */}
+      <Script
+        id="team-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Peoplet Studio",
+            url: "https://www.peoplet.com",
+            logo: "https://www.peoplet.com/logo.png",
+            description:
+              "Peoplet Studio is a creative digital agency specializing in web development, design, and data-driven consulting. Meet the core team behind Peoplet.",
+            member: team.map((member) => ({
+              "@type": "Person",
+              name: member.name,
+              jobTitle: member.role,
+              description: member.desc,
+              image: `https://www.peoplet.com${member.image}`,
+              knowsAbout: member.skills,
+              worksFor: {
+                "@type": "Organization",
+                name: "Peoplet Studio",
+              },
+            })),
+          }),
+        }}
+      />
+
       <div className="relative w-full bg-[#0066ff] py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto mt-20">
         {/* Pozadinski kvadrati */}
         <div className="absolute inset-0 opacity-20">
@@ -85,7 +119,7 @@ export default function TeamSection() {
             technology should work together to make human experiences better.
           </motion.p>
 
-          {/* Wrapper za članove tima s većim razmakom */}
+          {/* Wrapper za članove tima */}
           <div className="flex flex-col items-center justify-center gap-y-32">
             {team.map((member, i) => (
               <motion.div
@@ -105,7 +139,7 @@ export default function TeamSection() {
                 </div>
 
                 <h3 className="text-2xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-[#0066ff] font-medium mb-4">{member.role}</p>
+                <p className="text-[#00e6b8] font-medium mb-4">{member.role}</p>
                 <p className="text-gray-100 max-w-md">{member.desc}</p>
 
                 <div className="flex flex-wrap justify-center gap-3 mt-6">

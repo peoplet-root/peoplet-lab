@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Script from "next/script";
 
 export default function ServicesSection() {
   const [squares, setSquares] = useState([]);
@@ -26,33 +27,70 @@ export default function ServicesSection() {
     setSquares(newSquares);
   }, []);
 
-const services = [
-  {
-    title: "Web Development",
-    desc: "We build fast, scalable, and human-centered web platforms using modern frameworks. Every product is designed to look great, perform smoothly, and adapt to real human needs.",
-    image: "/assets/services/webdev.png",
-  },
-  {
-    title: "Graphic Design & Branding",
-    desc: "We craft visual systems that tell your story with clarity and emotion — from brand identity and logo design to complete digital ecosystems that feel cohesive and memorable.",
-    image: "/assets/services/design.png",
-  },
-  {
-    title: "Network Science & Consulting",
-    desc: "We help organizations understand their internal connections — mapping communication, influence, and collaboration patterns to design smarter, more connected teams.",
-    image: "/assets/services/network.png",
-  },
-  {
-    title: "Data Analysis & Visualization",
-    desc: "We turn data into meaning. Through interactive visuals and analytical tools, we uncover insights that guide better decisions and reveal hidden opportunities.",
-    image: "/assets/services/data.png",
-  },
-];
-
-
+  const services = [
+    {
+      title: "Web Development",
+      desc: "We build fast, scalable, and human-centered web platforms using modern frameworks. Every product is designed to look great, perform smoothly, and adapt to real human needs.",
+      image: "/assets/services/webdev.png",
+    },
+    {
+      title: "Graphic Design & Branding",
+      desc: "We craft visual systems that tell your story with clarity and emotion — from brand identity and logo design to complete digital ecosystems that feel cohesive and memorable.",
+      image: "/assets/services/design.png",
+    },
+    {
+      title: "Network Science & Consulting",
+      desc: "We help organizations understand their internal connections — mapping communication, influence, and collaboration patterns to design smarter, more connected teams.",
+      image: "/assets/services/network.png",
+    },
+    {
+      title: "Data Analysis & Visualization",
+      desc: "We turn data into meaning. Through interactive visuals and analytical tools, we uncover insights that guide better decisions and reveal hidden opportunities.",
+      image: "/assets/services/data.png",
+    },
+  ];
 
   return (
-    <section className="relative w-full text-black md:py-32 py-24 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
+    <section
+      id="services"
+      aria-label="Peoplet Studio Services Section"
+      className="relative w-full text-black md:py-32 py-24 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto"
+    >
+      {/* ✅ JSON-LD structured data for services */}
+      <Script
+        id="services-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            provider: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+            },
+            serviceType: "Digital Design and Development",
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Peoplet Studio Services",
+              itemListElement: services.map((service) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: service.title,
+                  description: service.desc,
+                  provider: {
+                    "@type": "Organization",
+                    name: "Peoplet Studio",
+                  },
+                },
+              })),
+            },
+          }),
+        }}
+      />
+
       {/* 🔷 Animirani kvadrati */}
       <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
         {squares.map((sq) => (

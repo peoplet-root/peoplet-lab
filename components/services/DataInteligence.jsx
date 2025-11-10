@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function DataIntelligenceSection() {
   const [squares, setSquares] = useState([]);
@@ -47,7 +48,38 @@ export default function DataIntelligenceSection() {
   ];
 
   return (
-    <section className="px-2">
+    <section
+      id="data-intelligence"
+      aria-label="Data Intelligence and Network Science Section"
+      className="px-2"
+    >
+      {/* ✅ JSON-LD structured data for Data Intelligence section */}
+      <Script
+        id="data-intelligence-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Data Intelligence and Network Science",
+            url: "https://www.peoplet.com/about#data-intelligence",
+            description:
+              "Peoplet Lab explores how data, network science, and design reveal human patterns in organizations — combining analytics and empathy to improve collaboration and transparency.",
+            creator: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+            },
+            hasPart: features.map((item) => ({
+              "@type": "DefinedTerm",
+              name: item.title,
+              description: item.desc,
+            })),
+          }),
+        }}
+      />
+
       <div className="relative w-full bg-[#0066ff] text-white py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
         {/* 🔷 Animirani kvadrati */}
         <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
@@ -111,9 +143,7 @@ export default function DataIntelligenceSection() {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               className="bg-white/10 border border-white/30 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
             >
-              <h3 className="text-2xl font-semibold mb-4">
-                {item.title}
-              </h3>
+              <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
               <p className="text-neutral-100 leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
@@ -127,8 +157,8 @@ export default function DataIntelligenceSection() {
             transition={{ duration: 0.6 }}
             className="text-lg leading-relaxed"
           >
-            Data is more than numbers — it’s a mirror of how people connect, create,
-            and grow.  
+            Data is more than numbers — it’s a mirror of how people connect,
+            create, and grow.  
             Our mission is to make those patterns visible, useful, and human.
           </motion.p>
         </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function ApproachSection() {
   const [squares, setSquares] = useState([]);
@@ -28,7 +29,39 @@ export default function ApproachSection() {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center text-black overflow-hidden rounded-[30px] lg:rounded-[80px] py-32 px-6 max-w-[1920px] mx-auto">
+    <section
+      id="approach"
+      aria-label="Our Approach Section"
+      className="relative flex items-center justify-center text-black overflow-hidden rounded-[30px] lg:rounded-[80px] py-32 px-6 max-w-[1920px] mx-auto"
+    >
+      {/* ✅ JSON-LD structured data for the Approach section */}
+      <Script
+        id="approach-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Our Approach – Peoplet Studio",
+            url: "https://www.peoplet.com/about#approach",
+            description:
+              "Peoplet Studio’s creative approach combines design, data, and empathy to build intelligent and human-centered digital experiences.",
+            about: {
+              "@type": "Thing",
+              name: "Design Thinking and Data-driven Creativity",
+              description:
+                "A multidisciplinary process combining network science, user experience, and software engineering.",
+            },
+            creator: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+            },
+          }),
+        }}
+      />
+
       {/* 🔷 Animirani kvadrati */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {squares.map((sq) => (

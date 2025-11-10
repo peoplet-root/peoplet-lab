@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function WhyWorkWithPeoplet() {
   const [squares, setSquares] = useState([]);
@@ -47,7 +48,38 @@ export default function WhyWorkWithPeoplet() {
   ];
 
   return (
-    <section className="relative w-full bg-white text-black py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto">
+    <section
+      id="why-work-with-peoplet"
+      aria-label="Why Work With Peoplet Section"
+      className="relative w-full bg-white text-black py-32 px-6 overflow-hidden rounded-[30px] lg:rounded-[80px] max-w-[1920px] mx-auto"
+    >
+      {/* ✅ JSON-LD structured data for company philosophy */}
+      <Script
+        id="why-work-with-peoplet-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Why Work With Peoplet",
+            url: "https://www.peoplet.com/about#why-work-with-peoplet",
+            description:
+              "Peoplet Studio builds long-term partnerships through design-led thinking, human-centered development, and transparent collaboration.",
+            creator: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+            },
+            hasPart: values.map((value) => ({
+              "@type": "DefinedTerm",
+              name: value.title,
+              description: value.desc,
+            })),
+          }),
+        }}
+      />
+
       {/* 🔷 Animirani kvadrati */}
       <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
         {squares.map((sq) => (
