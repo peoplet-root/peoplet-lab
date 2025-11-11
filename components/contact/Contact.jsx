@@ -1,18 +1,78 @@
-'use client'
+"use client";
 
 import { motion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
 import { Fragment, useEffect, useRef, useState } from "react";
+import Script from "next/script";
 
 const TerminalContact = () => {
   const containerRef = useRef(null);
   const inputRef = useRef(null);
 
+  const handleSend = async () => {
+    const formData = questions.reduce(
+      (acc, val) => ({ ...acc, [val.key]: val.value }),
+      {}
+    );
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.description,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setComplete(true);
+      } else {
+        alert("There was a problem sending your message.");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <section
+      id="terminal-contact"
+      aria-label="Interactive Terminal Contact Form"
       className="relative mx-auto w-full max-w-[1300px] overflow-hidden px-4 text-white sm:mt-16 sm:px-6"
     >
-      {/* Floating blue shapes like Hero */}
+      {/* ✅ JSON-LD structured data */}
+      <Script
+        id="terminal-contact-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Peoplet Terminal Contact",
+            url: "https://www.peoplet.com/contact#terminal",
+            description:
+              "An interactive terminal contact form built by Peoplet Studio. Start typing to connect with the team about ideas, collaborations, or projects.",
+            publisher: {
+              "@type": "Organization",
+              name: "Peoplet Studio",
+              url: "https://www.peoplet.com",
+              logo: "https://www.peoplet.com/logo.png",
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  contactType: "General Inquiries",
+                  email: "info@peoplet.io",
+                  availableLanguage: ["English"],
+                  areaServed: "Worldwide",
+                },
+              ],
+            },
+          }),
+        }}
+      />
+
+      {/* Floating blue shapes */}
       <div className="pointer-events-none absolute inset-0 opacity-20">
         {[...Array(12)].map((_, i) => (
           <div
@@ -31,16 +91,18 @@ const TerminalContact = () => {
         ))}
       </div>
 
-      {/* Section Heading */}
+      {/* Section heading */}
       <div className="relative z-10 mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-        <h1 className="mb-4 text-3xl font-semibold sm:text-5xl md:text-6xl text-black">Let’s Talk</h1>
+        <h1 className="mb-4 text-3xl font-semibold sm:text-5xl md:text-6xl text-black">
+          Let’s Talk
+        </h1>
         <p className="mx-auto max-w-xl text-base text-black sm:text-lg">
-          Have an idea, project, or collaboration in mind?  
-          Start typing below — our terminal is listening.
+          Have an idea, project, or collaboration in mind? Start typing below —
+          our terminal is listening.
         </p>
       </div>
 
-      {/* Terminal */}
+      {/* Terminal interface */}
       <div
         ref={containerRef}
         onClick={() => inputRef.current?.focus()}
@@ -53,20 +115,17 @@ const TerminalContact = () => {
   );
 };
 
-const TerminalHeader = () => {
-  return (
-    <div className="w-full p-3 bg-slate-900 flex items-center gap-1 sticky top-0 rounded-t-[5px]">
-      <div className="w-3 h-3 rounded-full bg-red-500" />
-      <div className="w-3 h-3 rounded-full bg-yellow-500" />
-      <div className="w-3 h-3 rounded-full bg-green-500" />
-      <span className="text-sm text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
-        info@peoplet.io
-      </span>
-    </div>
-  );
-};
+const TerminalHeader = () => (
+  <div className="w-full p-3 bg-slate-900 flex items-center gap-1 sticky top-0 rounded-t-[5px]">
+    <div className="w-3 h-3 rounded-full bg-red-500" />
+    <div className="w-3 h-3 rounded-full bg-yellow-500" />
+    <div className="w-3 h-3 rounded-full bg-green-500" />
+    <span className="text-sm text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
+      info@peoplet.io
+    </span>
+  </div>
+);
 
-// Existing logic below remains identical
 const TerminalBody = ({ containerRef, inputRef }) => {
   const [focused, setFocused] = useState(false);
   const [text, setText] = useState("");
@@ -76,12 +135,9 @@ const TerminalBody = ({ containerRef, inputRef }) => {
   const handleSubmitLine = (value) => {
     if (curQuestion) {
       setQuestions((pv) =>
-        pv.map((q) => {
-          if (q.key === curQuestion.key) {
-            return { ...q, complete: true, value };
-          }
-          return q;
-        })
+        pv.map((q) =>
+          q.key === curQuestion.key ? { ...q, complete: true, value } : q
+        )
       );
     }
   };
@@ -120,46 +176,77 @@ const InitialText = () => (
 
 const PreviousQuestions = ({ questions }) => (
   <>
-    {questions.map((q, i) =>
-      q.complete ? (
-        <Fragment key={i}>
-          <p>
-            {q.text || ""}
-            {q.postfix && <span className="text-violet-300">{q.postfix}</span>}
-          </p>
-          <p className="text-emerald-300">
-            <FiCheckCircle className="inline-block mr-2" />
-            <span>{q.value}</span>
-          </p>
-        </Fragment>
-      ) : (
-        <Fragment key={i}></Fragment>
-      )
+    {questions.map(
+      (q, i) =>
+        q.complete && (
+          <Fragment key={i}>
+            <p>
+              {q.text}
+              {q.postfix && (
+                <span className="text-violet-300">{q.postfix}</span>
+              )}
+            </p>
+            <p className="text-emerald-300">
+              <FiCheckCircle className="inline-block mr-2" />
+              {q.value}
+            </p>
+          </Fragment>
+        )
     )}
   </>
 );
 
-const CurrentQuestion = ({ curQuestion }) => {
-  if (!curQuestion) return null;
-  return (
+const CurrentQuestion = ({ curQuestion }) =>
+  curQuestion ? (
     <p>
-      {curQuestion.text || ""}
+      {curQuestion.text}
       {curQuestion.postfix && (
         <span className="text-violet-300">{curQuestion.postfix}</span>
       )}
     </p>
-  );
-};
+  ) : null;
 
+// 🧩 UPDATED: Form submission added here
 const Summary = ({ questions, setQuestions }) => {
   const [complete, setComplete] = useState(false);
-  const handleReset = () =>
-    setQuestions((pv) => pv.map((q) => ({ ...q, value: "", complete: false })));
+  const [status, setStatus] = useState("idle");
 
-  const handleSend = () => {
-    const formData = questions.reduce((acc, val) => ({ ...acc, [val.key]: val.value }), {});
-    console.log(formData);
-    setComplete(true);
+  const handleReset = () =>
+    setQuestions((pv) =>
+      pv.map((q) => ({ ...q, value: "", complete: false }))
+    );
+
+  const handleSend = async () => {
+    const formData = questions.reduce(
+      (acc, val) => ({ ...acc, [val.key]: val.value }),
+      {}
+    );
+
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.description,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to send");
+      }
+
+      setStatus("success");
+      setComplete(true);
+    } catch (err) {
+      console.error("❌ Error sending form:", err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -187,15 +274,26 @@ const Summary = ({ questions, setQuestions }) => {
           <button
             type="button"
             onClick={handleSend}
-            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-white text-[#0066ff]"
+            disabled={status === "loading"}
+            className={`px-3 py-1 text-base rounded transition-opacity ${
+              status === "loading"
+                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                : "bg-white text-[#0066ff] hover:opacity-90"
+            }`}
           >
-            Send it!
+            {status === "loading" ? "Sending..." : "Send it!"}
           </button>
         </div>
+      )}
+      {status === "error" && (
+        <p className="text-red-400 mt-2">
+          Something went wrong ❌ (Check server logs)
+        </p>
       )}
     </>
   );
 };
+
 
 const CurLine = ({
   text,

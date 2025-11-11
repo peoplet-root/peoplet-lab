@@ -37,7 +37,7 @@ export default function About() {
       <div className="mx-auto w-full">
         <Reveal>
           <h1 className="mb-8 text-4xl font-bold md:mb-10 md:text-6xl leading-tight">
-            About <span className="italic text-[#0066ff]">Peoplet Studio</span>
+            About <span className="italic text-[#0066ff]">Peoplet</span>
           </h1>
         </Reveal>
 

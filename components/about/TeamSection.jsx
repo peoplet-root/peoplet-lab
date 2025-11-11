@@ -26,14 +26,14 @@ export default function TeamSection() {
       name: "Dino Pitoski",
       role: "CEO & Data Scientist",
       desc: "Merges design and development into one creative process. Believes that good technology should feel simple, emotional, and honest — transforming ideas into experiences that people actually enjoy using.",
-      image: "/assets/team/robertino.jpg",
+      image: "/assets/dino.png",
       skills: ["Network Science", "Prototyping", "Data Visualization", "AI Tools"],
     },
     {
       name: "Robertino Puhanić",
       role: "Full-stack Developer & Designer",
       desc: "Merges design and development into one creative process. Believes that good technology should feel simple, emotional, and honest — transforming ideas into experiences that people actually enjoy using.",
-      image: "/assets/image.jpg",
+      image: "/assets/robertino.jpg",
       skills: ["Web Development", "UI/UX Design", "Graphic Design", "Social Media"],
     },
   ];

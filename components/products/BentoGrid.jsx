@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Script from "next/script";
 
 const cards = [
   {
@@ -33,7 +36,42 @@ const cards = [
 
 export default function BentoGrid() {
   return (
-    <section className="w-full px-6 py-16 mt-20">
+    <section
+      id="bento-grid"
+      aria-label="Peoplet Platform Capabilities Section"
+      className="w-full px-6 py-16 mt-20"
+    >
+      {/* ✅ JSON-LD structured data */}
+      <Script
+        id="bento-grid-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Peoplet Platform Capabilities",
+            url: "https://www.peoplet.com/#bento-grid",
+            description:
+              "Core capabilities of the Peoplet platform — visualization, collaboration, AI insights, and data customization.",
+            numberOfItems: cards.length,
+            itemListElement: cards.map((card, i) => ({
+              "@type": "CreativeWork",
+              position: i + 1,
+              name: card.subtitle,
+              headline: card.title,
+              text: card.description,
+              inLanguage: "en",
+              creator: {
+                "@type": "Organization",
+                name: "Peoplet Studio",
+                url: "https://www.peoplet.com",
+                logo: "https://www.peoplet.com/logo.png",
+              },
+            })),
+          }),
+        }}
+      />
+
       <div className="max-w-[1300px] mx-auto">
         <div className="mb-12 text-center">
           <h2 className="text-4xl md:text-6xl font-semibold text-left mb-16">

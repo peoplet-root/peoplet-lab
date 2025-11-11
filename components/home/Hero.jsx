@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Reveal from "../util/Reveal";
 import { generateFloatingShapes } from "../util/generateFloatingShapes";
 import Script from "next/script";
@@ -57,7 +58,7 @@ export default function Hero() {
         <div className="relative max-w-[1300px] mx-auto px-6 lg:py-40 py-28 z-10">
           <Reveal>
             <h1 className="lg:text-6xl text-4xl font-bold mb-8 leading-tight">
-              Creative Web Design, Branding & Data Analytics by Peoplet Studio
+              Empowering Ideas Through Design & Development
             </h1>
           </Reveal>
 
@@ -72,20 +73,24 @@ export default function Hero() {
 
           <Reveal>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                title="View our latest web design and branding projects"
-                className="bg-white text-[#0066ff] font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-50 transition duration-300"
-              >
-                View Our Work
-              </a>
-              <a
-                href="#contact"
-                title="Contact Peoplet Studio – Start your project"
-                className="border border-white text-white font-medium px-6 py-3 rounded-lg hover:bg-white hover:text-[#0066ff] transition duration-300"
-              >
-                Contact Us
-              </a>
+              <Link href="/products">
+                <button
+                  href="#projects"
+                  title="View our latest web design and branding projects"
+                  className="bg-white text-[#0066ff] font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-50 transition duration-300"
+                >
+                  View Our Work
+                </button>
+              </Link>
+              <Link href="/contact">
+                <button
+                  href="#contact"
+                  title="Contact Peoplet Studio – Start your project"
+                  className="border border-white text-white font-medium px-6 py-3 rounded-lg hover:bg-white hover:text-[#0066ff] transition duration-300"
+                >
+                  Contact Us
+                </button>
+              </Link>
             </div>
           </Reveal>
         </div>

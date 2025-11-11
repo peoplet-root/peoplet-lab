@@ -80,10 +80,10 @@ export default function Navbar() {
 
         {/* Social icons */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-5 items-center">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
+          <a href="https://www.instagram.com/peoplet.io/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
             <FaInstagram />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
+          <a href="https://www.linkedin.com/company/peoplet/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
             <FaLinkedinIn />
           </a>
         </div>
@@ -137,10 +137,10 @@ export default function Navbar() {
             ))}
 
             <div className="mt-8 flex gap-5">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
+              <a href="https://www.instagram.com/peoplet.io/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
                 <FaInstagram />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
+              <a href="https://www.linkedin.com/company/peoplet/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-[#0066ff] transition-colors">
                 <FaLinkedinIn />
               </a>
             </div>
