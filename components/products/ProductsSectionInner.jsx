@@ -34,7 +34,7 @@ export default function ProductsSectionInner() {
     {
       name: "Peoplet App",
       desc: "A data visualization platform that maps relationships between people, projects, and ideas. It helps uncover hidden connections, enhance collaboration, and reveal patterns within complex networks of information. Designed to make data exploration intuitive and interactive, it provides an insightful way to understand how individuals and initiatives are interconnected.",
-      image: "/assets/webp/peoplet-app.webp",
+      image: "/assets/webp/consulting.webp",
       tag: "Network Intelligence",
     },
     {

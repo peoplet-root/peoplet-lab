@@ -29,7 +29,7 @@ const features = [
     title: "Data & Strategy Consulting",
     desc: "We help organizations make smarter decisions by connecting design, data, and business strategy. Through our analytical and network-based approach, we uncover insights that optimize performance and collaboration.",
     contentPosition: "r",
-    image: "/assets/webp/peoplet-app.webp",
+    image: "/assets/webp/consulting.webp",
   },
   {
     id: 4,
