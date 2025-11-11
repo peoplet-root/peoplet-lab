@@ -136,7 +136,7 @@ export default function ProductsSectionInner() {
             className="max-w-2xl mx-auto text-white/90 text-lg"
           >
             Tools and systems built inside{" "}
-            <span className="text-white font-medium">Peoplet Lab</span> — from
+            <span className="text-white font-bold">Peoplet </span> — from
             internal prototypes to full-scale digital platforms.
           </motion.p>
         </div>

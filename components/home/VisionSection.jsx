@@ -75,7 +75,7 @@ export default function VisionSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-gray-100 max-w-3xl mx-auto mb-8 text-lg leading-relaxed"
           >
-            At Peoplet, we believe that the best digital products come from a
+            At <span className="font-bold">Peoplet, </span> we believe that the best digital products come from a
             deep understanding of people and the systems they create together.
             Our vision is to build tools, interfaces, and strategies that make
             human connections visible — transforming data into empathy,

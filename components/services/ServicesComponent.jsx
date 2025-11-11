@@ -140,7 +140,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-neutral-700 text-lg leading-relaxed"
         >
-          Peoplet Lab connects design, technology, and data into one process —
+          <span className="text-[#0066ff] font-bold">Peoplet </span> connects design, technology, and data into one process —
           helping teams and organizations create systems that make collaboration
           and decision-making more meaningful.
         </motion.p>

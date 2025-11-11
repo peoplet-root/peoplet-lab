@@ -105,7 +105,7 @@ export default function WhyPeopletInner() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-white text-lg leading-relaxed mb-8"
         >
-          At <span className="text-[#0066ff] font-medium">Peoplet Studio</span>,
+          At <span className="text-[#0066ff] font-bold">Peoplet </span>,
           we believe that technology should connect, not isolate.  
           Our mission is to design digital systems that enhance collaboration,
           creativity, and shared intelligence — empowering people to create and

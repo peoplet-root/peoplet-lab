@@ -120,7 +120,7 @@ export default function Footer() {
 
       {/* 🧾 Bottom */}
       <div className="mt-12 border-t border-zinc-800 pt-6 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Peoplet Lab. All rights reserved.{" "}
+        © {new Date().getFullYear()} Peoplet. All rights reserved.{" "}
       </div>
     </footer>
   );
