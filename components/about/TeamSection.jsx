@@ -26,15 +26,15 @@ export default function TeamSection() {
       name: "Dino Pitoski",
       role: "CEO & Data Scientist",
       desc: "Merges design and development into one creative process. Believes that good technology should feel simple, emotional, and honest — transforming ideas into experiences that people actually enjoy using.",
-      image: "/assets/dino.png",
+      image: "/assets/webp/dino.webp",
       skills: ["Network Science", "Prototyping", "Data Visualization", "AI Tools"],
     },
     {
       name: "Robertino Puhanić",
       role: "Full-stack Developer & Designer",
       desc: "Merges design and development into one creative process. Believes that good technology should feel simple, emotional, and honest — transforming ideas into experiences that people actually enjoy using.",
-      image: "/assets/robertino.jpg",
-      skills: ["Web Development", "UI/UX Design", "Graphic Design", "Social Media"],
+      image: "/assets/webp/robertino.webp",
+      skills: ["Web Applications", "Web Design", "UI/UX Design", "Graphic Design",],
     },
   ];
 
@@ -129,12 +129,12 @@ export default function TeamSection() {
                 transition={{ duration: 0.6 }}
                 className="flex flex-col items-center justify-center text-center"
               >
-                <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-[#0066ff]/50 mb-6">
+                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#0066ff]/50 mb-6">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover border border-white"
+                    className="object-cover"
                   />
                 </div>
 

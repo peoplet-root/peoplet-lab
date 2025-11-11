@@ -34,13 +34,13 @@ export default function ProductsSectionInner() {
     {
       name: "Peoplet App",
       desc: "A data visualization platform that maps relationships between people, projects, and ideas. It helps uncover hidden connections, enhance collaboration, and reveal patterns within complex networks of information. Designed to make data exploration intuitive and interactive, it provides an insightful way to understand how individuals and initiatives are interconnected.",
-      image: "/assets/products/graph.png",
+      image: "/assets/webp/peoplet-app.webp",
       tag: "Network Intelligence",
     },
     {
       name: "Peoplet Stat",
       desc: "An intelligent workspace for managing and analyzing data from the Peoplet platform. It functions like a dynamic spreadsheet — flexible, familiar, and collaborative — but powered by live data connections to people, projects, and ideas. Instead of manually inputting information, it automatically pulls structured and relational data from the main system, allowing teams to explore insights, measure performance, and make data-driven decisions with clarity and precision.",
-      image: "/assets/products/cms.png",
+      image: "/assets/webp/peoplet-stat.webp",
       tag: "Data Management",
     },
   ];
@@ -142,24 +142,25 @@ export default function ProductsSectionInner() {
         </div>
 
         {/* 🧩 Grid proizvoda */}
-        <div className="relative z-10 grid gap-8 md:grid-cols-2 lg:grid-cols-2 max-w-[1200px] mx-auto">
+        <div className="relative z-10 flex flex-wrap justify-center gap-8 max-w-[1200px] mx-auto">
           {products.map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="bg-white/10 border border-white/30 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
+              className="w-[420px] bg-white/10 border border-white/30 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
             >
-              <div className="relative h-40 mb-6 overflow-hidden rounded-2xl bg-[#0e0e0e]/20 flex items-center justify-center">
+              <div className="relative w-full h-48 mb-6 overflow-hidden rounded-2xl bg-[#0e0e0e]/20">
                 <Image
                   src={p.image}
                   alt={p.name}
-                  width={300}
-                  height={200}
-                  className="object-contain w-40 h-40"
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
                 />
               </div>
+
               <p className="text-sm uppercase tracking-widest text-white/70 mb-2">
                 {p.tag}
               </p>

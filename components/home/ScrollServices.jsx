@@ -13,7 +13,7 @@ const features = [
     title: "Web Development & Digital Experiences",
     desc: "We design and build custom websites and web applications that combine performance, usability, and visual appeal. Every digital experience we create is built to engage users, strengthen brands, and drive business results.",
     contentPosition: "r",
-    image: "/assets/webdev.jpg",
+    image: "/assets/webp/webdev.webp",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const features = [
     title: "Graphic Design & Brand Identity",
     desc: "Our creative team crafts powerful visual identities and brand systems that communicate clearly and leave a lasting impression. From concept to execution, we bring your brand to life across every digital channel.",
     contentPosition: "l",
-    image: "/assets/graphdesign.jpg",
+    image: "/assets/webp/graphicdesign.webp",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const features = [
     title: "Data & Strategy Consulting",
     desc: "We help organizations make smarter decisions by connecting design, data, and business strategy. Through our analytical and network-based approach, we uncover insights that optimize performance and collaboration.",
     contentPosition: "r",
-    image: "/assets/consulting.png",
+    image: "/assets/webp/peoplet-app.webp",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const features = [
     title: "Data Analytics & Automation",
     desc: "Our team builds data-driven systems that simplify complex workflows and help businesses operate more efficiently. We turn information into action — combining analytics, visualization, and automation to accelerate growth.",
     contentPosition: "l",
-    image: "/assets/dataanalytics.jpg",
+    image: "/assets/webp/dataanalytics.webp",
   },
 ];
 

@@ -2,8 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Script from "next/script";
+
+// 🎨 Lucide Icons
+import {
+  Globe,
+  PenTool,
+  Network,
+  BarChart3,
+} from "lucide-react";
 
 export default function ServicesSection() {
   const [squares, setSquares] = useState([]);
@@ -31,22 +38,22 @@ export default function ServicesSection() {
     {
       title: "Web Development",
       desc: "We build fast, scalable, and human-centered web platforms using modern frameworks. Every product is designed to look great, perform smoothly, and adapt to real human needs.",
-      image: "/assets/services/webdev.png",
+      icon: <Globe size={52} strokeWidth={1.5} className="text-[#0066ff]" />,
     },
     {
       title: "Graphic Design & Branding",
       desc: "We craft visual systems that tell your story with clarity and emotion — from brand identity and logo design to complete digital ecosystems that feel cohesive and memorable.",
-      image: "/assets/services/design.png",
+      icon: <PenTool size={52} strokeWidth={1.5} className="text-[#0066ff]" />,
     },
     {
       title: "Network Science & Consulting",
       desc: "We help organizations understand their internal connections — mapping communication, influence, and collaboration patterns to design smarter, more connected teams.",
-      image: "/assets/services/network.png",
+      icon: <Network size={52} strokeWidth={1.5} className="text-[#0066ff]" />,
     },
     {
       title: "Data Analysis & Visualization",
       desc: "We turn data into meaning. Through interactive visuals and analytical tools, we uncover insights that guide better decisions and reveal hidden opportunities.",
-      image: "/assets/services/data.png",
+      icon: <BarChart3 size={52} strokeWidth={1.5} className="text-[#0066ff]" />,
     },
   ];
 
@@ -80,10 +87,6 @@ export default function ServicesSection() {
                   "@type": "Service",
                   name: service.title,
                   description: service.desc,
-                  provider: {
-                    "@type": "Organization",
-                    name: "Peoplet Studio",
-                  },
                 },
               })),
             },
@@ -154,13 +157,8 @@ export default function ServicesSection() {
             className="bg-white/60 backdrop-blur-md border border-[#0066ff]/30 rounded-3xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all"
           >
             <div className="flex flex-col items-start">
-              <div className="relative w-20 h-20 mb-6">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-contain"
-                />
+              <div className="w-12 h-12 mb-6 p-2 flex items-center justify-center bg-[#0066ff]/10 rounded-2xl">
+                {service.icon}
               </div>
               <h3 className="text-2xl font-semibold mb-3 text-[#0066ff]">
                 {service.title}
