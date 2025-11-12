@@ -35,7 +35,7 @@ export default function Navbar() {
             <Image
               alt="Peoplet Lab logo"
               src="/assets/peoplet-logo.png"
-              className="h-12 w-auto block dark:hidden"
+              className="h-14 w-auto block dark:hidden"
               width={100}
               height={100}
             />

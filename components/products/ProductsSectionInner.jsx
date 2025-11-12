@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Script from "next/script";
+import Link from "next/link";
 
 export default function ProductsSectionInner() {
   const [squares, setSquares] = useState([]);
@@ -36,12 +37,14 @@ export default function ProductsSectionInner() {
       desc: "A data visualization platform that maps relationships between people, projects, and ideas. It helps uncover hidden connections, enhance collaboration, and reveal patterns within complex networks of information. Designed to make data exploration intuitive and interactive, it provides an insightful way to understand how individuals and initiatives are interconnected.",
       image: "/assets/webp/consulting.webp",
       tag: "Network Intelligence",
+      link: "https://www.peoplet.io",
     },
     {
       name: "Peoplet Stat",
       desc: "An intelligent workspace for managing and analyzing data from the Peoplet platform. It functions like a dynamic spreadsheet — flexible, familiar, and collaborative — but powered by live data connections to people, projects, and ideas. Instead of manually inputting information, it automatically pulls structured and relational data from the main system, allowing teams to explore insights, measure performance, and make data-driven decisions with clarity and precision.",
       image: "/assets/webp/peoplet-stat.webp",
       tag: "Data Management",
+      link: "https://www.peoplet.io",
     },
   ];
 
@@ -151,21 +154,23 @@ export default function ProductsSectionInner() {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               className="w-[420px] bg-white/10 border border-white/30 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all"
             >
-              <div className="relative w-full h-48 mb-6 overflow-hidden rounded-2xl bg-[#0e0e0e]/20">
-                <Image
-                  src={p.image}
-                  alt={p.name}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                />
-              </div>
+              <Link href={p.link}>
+                <div className="relative w-full h-48 mb-6 overflow-hidden rounded-2xl bg-[#0e0e0e]/20">
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
 
-              <p className="text-sm uppercase tracking-widest text-white/70 mb-2">
-                {p.tag}
-              </p>
-              <h3 className="text-2xl font-semibold mb-3">{p.name}</h3>
-              <p className="text-white/80 leading-relaxed">{p.desc}</p>
+                <p className="text-sm uppercase tracking-widest text-white/70 mb-2">
+                  {p.tag}
+                </p>
+                <h3 className="text-2xl font-semibold mb-3">{p.name}</h3>
+                <p className="text-white/80 leading-relaxed">{p.desc}</p>
+              </Link>
             </motion.div>
           ))}
         </div>
